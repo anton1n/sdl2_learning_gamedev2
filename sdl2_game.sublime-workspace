@@ -1,0 +1,852 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"inc",
+				"include"
+			],
+			[
+				"add",
+				"addGroup"
+			],
+			[
+				"Collid",
+				"ColliderComponent"
+			],
+			[
+				"play",
+				"playerPos"
+			],
+			[
+				"Co",
+				"ColliderComponent"
+			],
+			[
+				"C",
+				"ColliderComponent"
+			],
+			[
+				"map",
+				"mapFile"
+			],
+			[
+				"m",
+				"mapScale"
+			],
+			[
+				"SDL",
+				"SDL_Texture"
+			],
+			[
+				"ge",
+				"getComponent"
+			],
+			[
+				"get",
+				"getComponent"
+			],
+			[
+				"Tex",
+				"TextureManager"
+			],
+			[
+				"sr",
+				"srcY"
+			],
+			[
+				"ani",
+				"animName"
+			],
+			[
+				"anim",
+				"animName"
+			],
+			[
+				"animati",
+				"animations"
+			],
+			[
+				"grou",
+				"groupEnemies"
+			],
+			[
+				"group",
+				"groupPlayer"
+			],
+			[
+				"em",
+				"emplace_back"
+			],
+			[
+				"ha",
+				"hasGroup"
+			],
+			[
+				"Grpo",
+				"GroupBitSet"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "sdl2_game.sublime-project",
+			"settings":
+			{
+				"buffer_size": 325,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			},
+			"undo_stack":
+			[
+				[
+					15,
+					1,
+					"insert",
+					{
+						"characters": "w"
+					},
+					"AQAAAEUBAAAAAAAARgEAAAAAAAAAAAAA",
+					"AwAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAEUBAAAAAAAARQEAAAAAAAAAAAAAAADwvw"
+				],
+				[
+					18,
+					1,
+					"left_delete",
+					null,
+					"AQAAAEUBAAAAAAAARQEAAAAAAAABAAAAdw",
+					"AwAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAEYBAAAAAAAARgEAAAAAAAAAAAAAAADwvw"
+				],
+				[
+					6,
+					1,
+					"insert",
+					{
+						"characters": "s"
+					},
+					"AQAAAEoAAAAAAAAASwAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAABKAAAAAAAAAEoAAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					13,
+					1,
+					"left_delete",
+					null,
+					"AQAAAEoAAAAAAAAASgAAAAAAAAABAAAAcw",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAABLAAAAAAAAAEsAAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					1,
+					1,
+					"insert",
+					{
+						"characters": "a"
+					},
+					"AQAAAEoAAAAAAAAASwAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAASgAAAAAAAABKAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					2,
+					1,
+					"left_delete",
+					null,
+					"AQAAAEoAAAAAAAAASgAAAAAAAAABAAAAYQ",
+					"AQAAAAAAAAABAAAASwAAAAAAAABLAAAAAAAAAAAAAAAAAPC/"
+				]
+			]
+		},
+		{
+			"file": "src/Game.cpp",
+			"settings":
+			{
+				"buffer_size": 3565,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			},
+			"undo_stack":
+			[
+				[
+					3,
+					1,
+					"insert",
+					{
+						"characters": "\n"
+					},
+					"AQAAAEMBAAAAAAAARAEAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAQwEAAAAAAABDAQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					5,
+					1,
+					"insert",
+					{
+						"characters": "\n"
+					},
+					"AQAAAEMBAAAAAAAARAEAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAQwEAAAAAAABDAQAAAAAAAAAAAAAAAAAA"
+				],
+				[
+					6,
+					1,
+					"insert",
+					{
+						"characters": "Ass"
+					},
+					"AwAAAEQBAAAAAAAARQEAAAAAAAAAAAAARQEAAAAAAABGAQAAAAAAAAAAAABGAQAAAAAAAEcBAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAARAEAAAAAAABEAQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					7,
+					1,
+					"insert_completion",
+					{
+						"completion": "AssetManager",
+						"format": "text",
+						"keep_prefix": false,
+						"must_insert": false,
+						"trigger": "AssetManager"
+					},
+					"AgAAAEQBAAAAAAAARAEAAAAAAAADAAAAQXNzRAEAAAAAAABQAQAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAARwEAAAAAAABHAQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					8,
+					1,
+					"insert",
+					{
+						"characters": "*"
+					},
+					"AQAAAFABAAAAAAAAUQEAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAUAEAAAAAAABQAQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					9,
+					1,
+					"insert",
+					{
+						"characters": " Game"
+					},
+					"BQAAAFEBAAAAAAAAUgEAAAAAAAAAAAAAUgEAAAAAAABTAQAAAAAAAAAAAABTAQAAAAAAAFQBAAAAAAAAAAAAAFQBAAAAAAAAVQEAAAAAAAAAAAAAVQEAAAAAAABWAQAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAUQEAAAAAAABRAQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					10,
+					1,
+					"insert",
+					{
+						"characters": "::assets"
+					},
+					"CAAAAFYBAAAAAAAAVwEAAAAAAAAAAAAAVwEAAAAAAABYAQAAAAAAAAAAAABYAQAAAAAAAFkBAAAAAAAAAAAAAFkBAAAAAAAAWgEAAAAAAAAAAAAAWgEAAAAAAABbAQAAAAAAAAAAAABbAQAAAAAAAFwBAAAAAAAAAAAAAFwBAAAAAAAAXQEAAAAAAAAAAAAAXQEAAAAAAABeAQAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAVgEAAAAAAABWAQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					11,
+					1,
+					"insert",
+					{
+						"characters": " ="
+					},
+					"AgAAAF4BAAAAAAAAXwEAAAAAAAAAAAAAXwEAAAAAAABgAQAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAXgEAAAAAAABeAQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					12,
+					1,
+					"insert",
+					{
+						"characters": " new"
+					},
+					"BAAAAGABAAAAAAAAYQEAAAAAAAAAAAAAYQEAAAAAAABiAQAAAAAAAAAAAABiAQAAAAAAAGMBAAAAAAAAAAAAAGMBAAAAAAAAZAEAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAYAEAAAAAAABgAQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					13,
+					1,
+					"insert",
+					{
+						"characters": " "
+					},
+					"AQAAAGQBAAAAAAAAZQEAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAZAEAAAAAAABkAQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					14,
+					1,
+					"insert_snippet",
+					{
+						"contents": "($0)"
+					},
+					"AQAAAGUBAAAAAAAAZwEAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAZQEAAAAAAABlAQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					15,
+					1,
+					"insert",
+					{
+						"characters": "AssetM"
+					},
+					"BgAAAGYBAAAAAAAAZwEAAAAAAAAAAAAAZwEAAAAAAABoAQAAAAAAAAAAAABoAQAAAAAAAGkBAAAAAAAAAAAAAGkBAAAAAAAAagEAAAAAAAAAAAAAagEAAAAAAABrAQAAAAAAAAAAAABrAQAAAAAAAGwBAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAZgEAAAAAAABmAQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					16,
+					1,
+					"insert_completion",
+					{
+						"completion": "AssetManager",
+						"format": "text",
+						"keep_prefix": false,
+						"must_insert": false,
+						"trigger": "AssetManager"
+					},
+					"AgAAAGYBAAAAAAAAZgEAAAAAAAAGAAAAQXNzZXRNZgEAAAAAAAByAQAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAbAEAAAAAAABsAQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					17,
+					1,
+					"insert_snippet",
+					{
+						"contents": "($0)"
+					},
+					"AQAAAHIBAAAAAAAAdAEAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAcgEAAAAAAAByAQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					18,
+					1,
+					"insert",
+					{
+						"characters": "&manager"
+					},
+					"CAAAAHMBAAAAAAAAdAEAAAAAAAAAAAAAdAEAAAAAAAB1AQAAAAAAAAAAAAB1AQAAAAAAAHYBAAAAAAAAAAAAAHYBAAAAAAAAdwEAAAAAAAAAAAAAdwEAAAAAAAB4AQAAAAAAAAAAAAB4AQAAAAAAAHkBAAAAAAAAAAAAAHkBAAAAAAAAegEAAAAAAAAAAAAAegEAAAAAAAB7AQAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAcwEAAAAAAABzAQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					20,
+					1,
+					"insert",
+					{
+						"characters": ";"
+					},
+					"AQAAAHwBAAAAAAAAfQEAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAfAEAAAAAAAB8AQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					21,
+					1,
+					"left_delete",
+					null,
+					"AQAAAHwBAAAAAAAAfAEAAAAAAAABAAAAOw",
+					"AQAAAAAAAAABAAAAfQEAAAAAAAB9AQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					23,
+					1,
+					"insert",
+					{
+						"characters": ";"
+					},
+					"AQAAAH0BAAAAAAAAfgEAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAfQEAAAAAAAB9AQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					30,
+					1,
+					"insert",
+					{
+						"characters": "//"
+					},
+					"AgAAAPoFAAAAAAAA+wUAAAAAAAAAAAAA+wUAAAAAAAD8BQAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAA+gUAAAAAAAD6BQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					35,
+					1,
+					"insert",
+					{
+						"characters": "\\"
+					},
+					"AQAAACYGAAAAAAAAJwYAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAJgYAAAAAAAAmBgAAAAAAAAAAAAAAAAAA"
+				],
+				[
+					36,
+					1,
+					"left_delete",
+					null,
+					"AQAAACYGAAAAAAAAJgYAAAAAAAABAAAAXA",
+					"AQAAAAAAAAABAAAAJwYAAAAAAAAnBgAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					37,
+					1,
+					"insert",
+					{
+						"characters": "\n"
+					},
+					"AQAAACYGAAAAAAAAJwYAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAJgYAAAAAAAAmBgAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					39,
+					1,
+					"reindent",
+					null,
+					"AQAAACYGAAAAAAAAJwYAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAJgYAAAAAAAAmBgAAAAAAAAAAAAAAAAAA"
+				],
+				[
+					40,
+					1,
+					"insert",
+					{
+						"characters": "\n"
+					},
+					"AwAAACcGAAAAAAAAKAYAAAAAAAAAAAAAKAYAAAAAAAApBgAAAAAAAAAAAAAmBgAAAAAAACYGAAAAAAAAAQAAAAk",
+					"AQAAAAAAAAABAAAAJwYAAAAAAAAnBgAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					42,
+					1,
+					"",
+					null,
+					"AQAAACgGAAAAAAAAkwYAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAKAYAAAAAAAAoBgAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					43,
+					1,
+					"insert",
+					{
+						"characters": "\n"
+					},
+					"AgAAAJMGAAAAAAAAlAYAAAAAAAAAAAAAlAYAAAAAAACVBgAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAkwYAAAAAAACTBgAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					50,
+					1,
+					"reindent",
+					null,
+					"AQAAAJYGAAAAAAAAlwYAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAlgYAAAAAAACWBgAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					52,
+					1,
+					"",
+					null,
+					"AQAAAJcGAAAAAAAAtQYAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAlwYAAAAAAACXBgAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					59,
+					3,
+					"left_delete",
+					null,
+					"BAAAADUHAAAAAAAANQcAAAAAAAABAAAAL5QGAAAAAAAAlAYAAAAAAAABAAAACTMHAAAAAAAAMwcAAAAAAAABAAAAczIHAAAAAAAAMgcAAAAAAAABAAAAZQ",
+					"AQAAAAAAAAABAAAANgcAAAAAAAA2BwAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					60,
+					1,
+					"left_delete",
+					null,
+					"AQAAADEHAAAAAAAAMQcAAAAAAAABAAAAcg",
+					"AQAAAAAAAAABAAAAMgcAAAAAAAAyBwAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					63,
+					10,
+					"right_delete",
+					null,
+					"CgAAADcHAAAAAAAANwcAAAAAAAABAAAAXzcHAAAAAAAANwcAAAAAAAABAAAAYTcHAAAAAAAANwcAAAAAAAABAAAAbjcHAAAAAAAANwcAAAAAAAABAAAAaTcHAAAAAAAANwcAAAAAAAABAAAAbTcHAAAAAAAANwcAAAAAAAABAAAAczcHAAAAAAAANwcAAAAAAAABAAAALjcHAAAAAAAANwcAAAAAAAABAAAAcDcHAAAAAAAANwcAAAAAAAABAAAAbjcHAAAAAAAANwcAAAAAAAABAAAAZw",
+					"AQAAAAAAAAABAAAANwcAAAAAAAA3BwAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					72,
+					1,
+					"insert",
+					{
+						"characters": "//"
+					},
+					"AgAAAJAAAAAAAAAAkQAAAAAAAAAAAAAAkQAAAAAAAACSAAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAkAAAAAAAAACQAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					78,
+					1,
+					"insert",
+					{
+						"characters": "//"
+					},
+					"AgAAAKoAAAAAAAAAqwAAAAAAAAAAAAAAqwAAAAAAAACsAAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAqgAAAAAAAACqAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					93,
+					1,
+					"",
+					null,
+					"AgAAAEgBAAAAAAAAgAEAAAAAAAAAAAAAgAEAAAAAAACAAQAAAAAAADsAAABBc3NldE1hbmFnZXIqIEdhbWU6OmFzc2V0cyA9IG5ldyAoQXNzZXRNYW5hZ2VyKCZtYW5hZ2VyKSk7Cg",
+					"AQAAAAAAAAABAAAASAEAAAAAAACDAQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					94,
+					1,
+					"insert",
+					{
+						"characters": "\n"
+					},
+					"AQAAAIABAAAAAAAAgQEAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAgAEAAAAAAACAAQAAAAAAAAAAAAAAAPC/"
+				]
+			]
+		},
+		{
+			"file": "src/Map.cpp",
+			"settings":
+			{
+				"buffer_size": 1650,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			},
+			"undo_stack":
+			[
+				[
+					5,
+					1,
+					"left_delete",
+					null,
+					"AQAAAIAAAAAAAAAAgAAAAAAAAAABAAAAOw",
+					"AQAAAAAAAAABAAAAgQAAAAAAAACBAAAAAAAAAAAAAAAAAPC/"
+				]
+			]
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"packa",
+				"Package Control: Install Package"
+			],
+			[
+				"package reso",
+				"PackageResourceViewer: Open Resource"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"package control: ins",
+				"Package Control: Install Package"
+			],
+			[
+				"",
+				"Install Package Control"
+			]
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/home/tony/Documents/cppProjects/sdl2_learning_gamedev-eeb044f3697e8f85141fa22d2d476e420fc39a6d",
+		"/home/tony/Documents/cppProjects/sdl2_learning_gamedev-eeb044f3697e8f85141fa22d2d476e420fc39a6d/include",
+		"/home/tony/Documents/cppProjects/sdl2_learning_gamedev-eeb044f3697e8f85141fa22d2d476e420fc39a6d/src"
+	],
+	"file_history":
+	[
+		"/home/tony/Documents/cppProjects/sdl2_learning_gamedev-eeb044f3697e8f85141fa22d2d476e420fc39a6d/include/Game.hpp",
+		"/home/tony/Documents/cppProjects/sdl2_learning_gamedev-eeb044f3697e8f85141fa22d2d476e420fc39a6d/include/TileComponent.hpp",
+		"/home/tony/Documents/cppProjects/sdl2_learning_gamedev-eeb044f3697e8f85141fa22d2d476e420fc39a6d/include/SpriteComponent.hpp",
+		"/home/tony/Documents/cppProjects/sdl2_learning_gamedev-eeb044f3697e8f85141fa22d2d476e420fc39a6d/src/AssetManager.cpp",
+		"/home/tony/Documents/cppProjects/sdl2_learning_gamedev-eeb044f3697e8f85141fa22d2d476e420fc39a6d/include/AssetManager.hpp",
+		"/home/tony/Documents/cppProjects/sdl2_learning_gamedev-eeb044f3697e8f85141fa22d2d476e420fc39a6d/include/TransformComponent.hpp",
+		"/home/tony/Documents/cppProjects/sdl2_learning_gamedev-eeb044f3697e8f85141fa22d2d476e420fc39a6d/include/Map.hpp",
+		"/home/tony/Documents/cppProjects/sdl2_learning_gamedev-eeb044f3697e8f85141fa22d2d476e420fc39a6d/src/Map.cpp",
+		"/home/tony/Documents/cppProjects/sdl2_learning_gamedev/src/Map.cpp",
+		"/home/tony/Documents/cppProjects/sdl2_learning_gamedev/src/Game.cpp",
+		"/home/tony/Documents/cppProjects/sdl2_learning_gamedev/include/Map.hpp",
+		"/home/tony/Documents/cppProjects/sdl2_learning_gamedev/include/TransformComponent.hpp",
+		"/home/tony/Documents/cppProjects/sdl2_learning_gamedev/include/TileComponent.hpp",
+		"/home/tony/Documents/cppProjects/sdl2_learning_gamedev/include/KeyboardController.hpp",
+		"/home/tony/Documents/cppProjects/sdl2_learning_gamedev/include/ColiderComponent.hpp",
+		"/home/tony/Documents/cppProjects/sdl2_learning_gamedev/src/Collision.cpp",
+		"/home/tony/Documents/cppProjects/sdl2_learning_gamedev/include/Game.hpp",
+		"/home/tony/Documents/cppProjects/sdl2_learning_gamedev/include/SpriteComponent.hpp",
+		"/home/tony/Documents/cppProjects/sdl2_learning_gamedev/sdl2_game.sublime-project",
+		"/home/tony/Documents/cppProjects/sdl2_learning_gamedev/include/Vector2D.hpp",
+		"/home/tony/Documents/cppProjects/sdl2_learning_gamedev/src/Vector2D.cpp",
+		"/home/tony/cppProject/game/include/TileComponent.hpp",
+		"/home/tony/cppProject/game/src/Map.cpp",
+		"/home/tony/cppProject/game/src/Collision.cpp",
+		"/home/tony/cppProject/game/src/Game.cpp",
+		"/home/tony/cppProject/game/include/Game.hpp",
+		"/home/tony/cppProject/game/include/KeyboardController.hpp",
+		"/home/tony/cppProject/game/include/SpriteComponent.hpp",
+		"/home/tony/tk.txt",
+		"/home/tony/cppProject/game/include/TextureManager.hpp",
+		"/home/tony/cppProject/game/src/TextureManager.cpp",
+		"/home/tony/cppProject/game/include/Animation.hpp",
+		"/home/tony/cppProject/game/include/TransformComponent.hpp",
+		"/home/tony/cppProject/game/include/ECS.hpp",
+		"/home/tony/cppProject/game/src/ECS.cpp",
+		"/home/tony/cppProject/game/src/TileComponent.cpp",
+		"/home/tony/cppProject/game/include/ColiderComponent.hpp",
+		"/home/tony/cppProject/game/include/GameObject.hpp",
+		"/home/tony/cppProject/game/src/main.cpp",
+		"/home/tony/cppProject/game/include/Collision.hpp",
+		"/home/tony/cppProject/game/sdl2_game.sublime-project",
+		"/home/tony/.config/sublime-text/Packages/Default/exec.py"
+	],
+	"find":
+	{
+		"height": 44.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"scrollbar_highlights": true,
+		"show_context": true,
+		"use_buffer2": true,
+		"use_gitignore": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "sdl2_game.sublime-project",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 325,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								70,
+								70
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JSON/JSON.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"stack_multiselect": false,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "src/Game.cpp",
+					"selected": true,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3565,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								308,
+								308
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"stack_multiselect": false,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "src/Map.cpp",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1650,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								128,
+								128
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"stack_multiselect": false,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 261.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "Debug",
+	"project": "sdl2_game.sublime-project",
+	"replace":
+	{
+		"height": 0.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 259.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
