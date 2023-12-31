@@ -76,6 +76,7 @@ void Game::init(const char* title, int x, int y, int width, int height, bool ful
 
 	assets->AddTexture("terrain", "res/terrain_ss.png");
 	assets->AddTexture("player", "res/player_anims.png");
+	assets->AddTexture("projectile", "res/proj.png");
 
 	map = new Map("terrain",3,32);
 	map->LoadMap("res/map.map", 25, 20);
@@ -86,12 +87,15 @@ void Game::init(const char* title, int x, int y, int width, int height, bool ful
 	player.addComponent<ColliderComponent>("player");
 	player.addGroup(groupPlayer);
 	
+	assets->CreateProjectile(Vector2D(600, 600), Vector2D(2,0),200, 2, "projectile");
+
 }
 
 auto& tiles(manager.getGroup(Game::groupMap));
 auto& players(manager.getGroup(Game::groupPlayer));
 auto& colliders(manager.getGroup(Game::groupColliders));
 //auto& enemies(manager.getGroup(Game::groupEnemies));
+auto& projectiles(manager.getGroup(Game::groupProjectiles));
 
 void Game::handleEvents()
 {
@@ -128,6 +132,16 @@ void Game::update() {
 
 
 	//std::cout << player.getComponent<TransformComponent>().position.x << std::endl;
+
+	
+	for (auto& p : projectiles)
+	{
+		if (Collision::AABB(player.getComponent<ColliderComponent>().collider, p->getComponent<ColliderComponent>().collider))
+		{
+			std::cout << "Hit player!" << std::endl;
+			p->destroy();
+		}
+	}
 
 	camera.x = player.getComponent<TransformComponent>().position.x - 400;
 	camera.y = player.getComponent<TransformComponent>().position.y - 320;
@@ -168,6 +182,11 @@ void Game::render() {
 	{
 		t->draw();
 	}
+	for (auto& p : projectiles)
+	{
+		p->draw();
+	}
+
 	SDL_RenderPresent(renderer);
 
 }

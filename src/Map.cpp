@@ -68,7 +68,7 @@ void Map::LoadMap(std::string path, int sizex, int sizey)
 					mapFile.get(c);
 				}
 			}
-			std::cout<<(int)c<<std::endl;
+			//std::cout<<(int)c<<std::endl;
 			if (c == 49)
 			{
 				auto& tcol(manager.addEntity());

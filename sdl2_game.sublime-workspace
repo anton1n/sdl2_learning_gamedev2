@@ -109,7 +109,7 @@
 						"characters": "w"
 					},
 					"AQAAAEUBAAAAAAAARgEAAAAAAAAAAAAA",
-					"AwAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAEUBAAAAAAAARQEAAAAAAAAAAAAAAADwvw"
+					"BQAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwvwAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAABFAQAAAAAAAEUBAAAAAAAAAAAAAAAA8L8"
 				],
 				[
 					18,
@@ -117,7 +117,7 @@
 					"left_delete",
 					null,
 					"AQAAAEUBAAAAAAAARQEAAAAAAAABAAAAdw",
-					"AwAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAEYBAAAAAAAARgEAAAAAAAAAAAAAAADwvw"
+					"BQAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwvwAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAABGAQAAAAAAAEYBAAAAAAAAAAAAAAAA8L8"
 				],
 				[
 					6,
@@ -127,7 +127,7 @@
 						"characters": "s"
 					},
 					"AQAAAEoAAAAAAAAASwAAAAAAAAAAAAAA",
-					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAABKAAAAAAAAAEoAAAAAAAAAAAAAAAAA8L8"
+					"BAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwvwAAAAABAAAASgAAAAAAAABKAAAAAAAAAAAAAAAAAPC/"
 				],
 				[
 					13,
@@ -135,7 +135,7 @@
 					"left_delete",
 					null,
 					"AQAAAEoAAAAAAAAASgAAAAAAAAABAAAAcw",
-					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAABLAAAAAAAAAEsAAAAAAAAAAAAAAAAA8L8"
+					"BAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwvwAAAAABAAAASwAAAAAAAABLAAAAAAAAAAAAAAAAAPC/"
 				],
 				[
 					1,
@@ -145,7 +145,7 @@
 						"characters": "a"
 					},
 					"AQAAAEoAAAAAAAAASwAAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAASgAAAAAAAABKAAAAAAAAAAAAAAAAAPC/"
+					"AwAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAEoAAAAAAAAASgAAAAAAAAAAAAAAAADwvw"
 				],
 				[
 					2,
@@ -153,377 +153,80 @@
 					"left_delete",
 					null,
 					"AQAAAEoAAAAAAAAASgAAAAAAAAABAAAAYQ",
-					"AQAAAAAAAAABAAAASwAAAAAAAABLAAAAAAAAAAAAAAAAAPC/"
-				]
-			]
-		},
-		{
-			"file": "src/Game.cpp",
-			"settings":
-			{
-				"buffer_size": 3565,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			},
-			"undo_stack":
-			[
-				[
-					3,
-					1,
-					"insert",
-					{
-						"characters": "\n"
-					},
-					"AQAAAEMBAAAAAAAARAEAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAQwEAAAAAAABDAQAAAAAAAAAAAAAAAPC/"
+					"AwAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAEsAAAAAAAAASwAAAAAAAAAAAAAAAADwvw"
 				],
 				[
 					5,
 					1,
 					"insert",
 					{
-						"characters": "\n"
+						"characters": "a"
 					},
-					"AQAAAEMBAAAAAAAARAEAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAQwEAAAAAAABDAQAAAAAAAAAAAAAAAAAA"
+					"AQAAAEUBAAAAAAAARgEAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAARQEAAAAAAABFAQAAAAAAAAAAAAAAAPC/"
 				],
 				[
 					6,
 					1,
-					"insert",
-					{
-						"characters": "Ass"
-					},
-					"AwAAAEQBAAAAAAAARQEAAAAAAAAAAAAARQEAAAAAAABGAQAAAAAAAAAAAABGAQAAAAAAAEcBAAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAARAEAAAAAAABEAQAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					7,
-					1,
-					"insert_completion",
-					{
-						"completion": "AssetManager",
-						"format": "text",
-						"keep_prefix": false,
-						"must_insert": false,
-						"trigger": "AssetManager"
-					},
-					"AgAAAEQBAAAAAAAARAEAAAAAAAADAAAAQXNzRAEAAAAAAABQAQAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAARwEAAAAAAABHAQAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					8,
-					1,
-					"insert",
-					{
-						"characters": "*"
-					},
-					"AQAAAFABAAAAAAAAUQEAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAUAEAAAAAAABQAQAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					9,
-					1,
-					"insert",
-					{
-						"characters": " Game"
-					},
-					"BQAAAFEBAAAAAAAAUgEAAAAAAAAAAAAAUgEAAAAAAABTAQAAAAAAAAAAAABTAQAAAAAAAFQBAAAAAAAAAAAAAFQBAAAAAAAAVQEAAAAAAAAAAAAAVQEAAAAAAABWAQAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAUQEAAAAAAABRAQAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					10,
-					1,
-					"insert",
-					{
-						"characters": "::assets"
-					},
-					"CAAAAFYBAAAAAAAAVwEAAAAAAAAAAAAAVwEAAAAAAABYAQAAAAAAAAAAAABYAQAAAAAAAFkBAAAAAAAAAAAAAFkBAAAAAAAAWgEAAAAAAAAAAAAAWgEAAAAAAABbAQAAAAAAAAAAAABbAQAAAAAAAFwBAAAAAAAAAAAAAFwBAAAAAAAAXQEAAAAAAAAAAAAAXQEAAAAAAABeAQAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAVgEAAAAAAABWAQAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					11,
-					1,
-					"insert",
-					{
-						"characters": " ="
-					},
-					"AgAAAF4BAAAAAAAAXwEAAAAAAAAAAAAAXwEAAAAAAABgAQAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAXgEAAAAAAABeAQAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					12,
-					1,
-					"insert",
-					{
-						"characters": " new"
-					},
-					"BAAAAGABAAAAAAAAYQEAAAAAAAAAAAAAYQEAAAAAAABiAQAAAAAAAAAAAABiAQAAAAAAAGMBAAAAAAAAAAAAAGMBAAAAAAAAZAEAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAYAEAAAAAAABgAQAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					13,
-					1,
-					"insert",
-					{
-						"characters": " "
-					},
-					"AQAAAGQBAAAAAAAAZQEAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAZAEAAAAAAABkAQAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					14,
-					1,
-					"insert_snippet",
-					{
-						"contents": "($0)"
-					},
-					"AQAAAGUBAAAAAAAAZwEAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAZQEAAAAAAABlAQAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					15,
-					1,
-					"insert",
-					{
-						"characters": "AssetM"
-					},
-					"BgAAAGYBAAAAAAAAZwEAAAAAAAAAAAAAZwEAAAAAAABoAQAAAAAAAAAAAABoAQAAAAAAAGkBAAAAAAAAAAAAAGkBAAAAAAAAagEAAAAAAAAAAAAAagEAAAAAAABrAQAAAAAAAAAAAABrAQAAAAAAAGwBAAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAZgEAAAAAAABmAQAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					16,
-					1,
-					"insert_completion",
-					{
-						"completion": "AssetManager",
-						"format": "text",
-						"keep_prefix": false,
-						"must_insert": false,
-						"trigger": "AssetManager"
-					},
-					"AgAAAGYBAAAAAAAAZgEAAAAAAAAGAAAAQXNzZXRNZgEAAAAAAAByAQAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAbAEAAAAAAABsAQAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					17,
-					1,
-					"insert_snippet",
-					{
-						"contents": "($0)"
-					},
-					"AQAAAHIBAAAAAAAAdAEAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAcgEAAAAAAAByAQAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					18,
-					1,
-					"insert",
-					{
-						"characters": "&manager"
-					},
-					"CAAAAHMBAAAAAAAAdAEAAAAAAAAAAAAAdAEAAAAAAAB1AQAAAAAAAAAAAAB1AQAAAAAAAHYBAAAAAAAAAAAAAHYBAAAAAAAAdwEAAAAAAAAAAAAAdwEAAAAAAAB4AQAAAAAAAAAAAAB4AQAAAAAAAHkBAAAAAAAAAAAAAHkBAAAAAAAAegEAAAAAAAAAAAAAegEAAAAAAAB7AQAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAcwEAAAAAAABzAQAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					20,
-					1,
-					"insert",
-					{
-						"characters": ";"
-					},
-					"AQAAAHwBAAAAAAAAfQEAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAfAEAAAAAAAB8AQAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					21,
-					1,
 					"left_delete",
 					null,
-					"AQAAAHwBAAAAAAAAfAEAAAAAAAABAAAAOw",
-					"AQAAAAAAAAABAAAAfQEAAAAAAAB9AQAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					23,
-					1,
-					"insert",
-					{
-						"characters": ";"
-					},
-					"AQAAAH0BAAAAAAAAfgEAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAfQEAAAAAAAB9AQAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					30,
-					1,
-					"insert",
-					{
-						"characters": "//"
-					},
-					"AgAAAPoFAAAAAAAA+wUAAAAAAAAAAAAA+wUAAAAAAAD8BQAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAA+gUAAAAAAAD6BQAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					35,
-					1,
-					"insert",
-					{
-						"characters": "\\"
-					},
-					"AQAAACYGAAAAAAAAJwYAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAJgYAAAAAAAAmBgAAAAAAAAAAAAAAAAAA"
-				],
-				[
-					36,
-					1,
-					"left_delete",
-					null,
-					"AQAAACYGAAAAAAAAJgYAAAAAAAABAAAAXA",
-					"AQAAAAAAAAABAAAAJwYAAAAAAAAnBgAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					37,
-					1,
-					"insert",
-					{
-						"characters": "\n"
-					},
-					"AQAAACYGAAAAAAAAJwYAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAJgYAAAAAAAAmBgAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					39,
-					1,
-					"reindent",
-					null,
-					"AQAAACYGAAAAAAAAJwYAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAJgYAAAAAAAAmBgAAAAAAAAAAAAAAAAAA"
-				],
-				[
-					40,
-					1,
-					"insert",
-					{
-						"characters": "\n"
-					},
-					"AwAAACcGAAAAAAAAKAYAAAAAAAAAAAAAKAYAAAAAAAApBgAAAAAAAAAAAAAmBgAAAAAAACYGAAAAAAAAAQAAAAk",
-					"AQAAAAAAAAABAAAAJwYAAAAAAAAnBgAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					42,
-					1,
-					"",
-					null,
-					"AQAAACgGAAAAAAAAkwYAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAKAYAAAAAAAAoBgAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					43,
-					1,
-					"insert",
-					{
-						"characters": "\n"
-					},
-					"AgAAAJMGAAAAAAAAlAYAAAAAAAAAAAAAlAYAAAAAAACVBgAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAkwYAAAAAAACTBgAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					50,
-					1,
-					"reindent",
-					null,
-					"AQAAAJYGAAAAAAAAlwYAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAlgYAAAAAAACWBgAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					52,
-					1,
-					"",
-					null,
-					"AQAAAJcGAAAAAAAAtQYAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAlwYAAAAAAACXBgAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					59,
-					3,
-					"left_delete",
-					null,
-					"BAAAADUHAAAAAAAANQcAAAAAAAABAAAAL5QGAAAAAAAAlAYAAAAAAAABAAAACTMHAAAAAAAAMwcAAAAAAAABAAAAczIHAAAAAAAAMgcAAAAAAAABAAAAZQ",
-					"AQAAAAAAAAABAAAANgcAAAAAAAA2BwAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					60,
-					1,
-					"left_delete",
-					null,
-					"AQAAADEHAAAAAAAAMQcAAAAAAAABAAAAcg",
-					"AQAAAAAAAAABAAAAMgcAAAAAAAAyBwAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					63,
-					10,
-					"right_delete",
-					null,
-					"CgAAADcHAAAAAAAANwcAAAAAAAABAAAAXzcHAAAAAAAANwcAAAAAAAABAAAAYTcHAAAAAAAANwcAAAAAAAABAAAAbjcHAAAAAAAANwcAAAAAAAABAAAAaTcHAAAAAAAANwcAAAAAAAABAAAAbTcHAAAAAAAANwcAAAAAAAABAAAAczcHAAAAAAAANwcAAAAAAAABAAAALjcHAAAAAAAANwcAAAAAAAABAAAAcDcHAAAAAAAANwcAAAAAAAABAAAAbjcHAAAAAAAANwcAAAAAAAABAAAAZw",
-					"AQAAAAAAAAABAAAANwcAAAAAAAA3BwAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					72,
-					1,
-					"insert",
-					{
-						"characters": "//"
-					},
-					"AgAAAJAAAAAAAAAAkQAAAAAAAAAAAAAAkQAAAAAAAACSAAAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAkAAAAAAAAACQAAAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					78,
-					1,
-					"insert",
-					{
-						"characters": "//"
-					},
-					"AgAAAKoAAAAAAAAAqwAAAAAAAAAAAAAAqwAAAAAAAACsAAAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAqgAAAAAAAACqAAAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					93,
-					1,
-					"",
-					null,
-					"AgAAAEgBAAAAAAAAgAEAAAAAAAAAAAAAgAEAAAAAAACAAQAAAAAAADsAAABBc3NldE1hbmFnZXIqIEdhbWU6OmFzc2V0cyA9IG5ldyAoQXNzZXRNYW5hZ2VyKCZtYW5hZ2VyKSk7Cg",
-					"AQAAAAAAAAABAAAASAEAAAAAAACDAQAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					94,
-					1,
-					"insert",
-					{
-						"characters": "\n"
-					},
-					"AQAAAIABAAAAAAAAgQEAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAgAEAAAAAAACAAQAAAAAAAAAAAAAAAPC/"
+					"AQAAAEUBAAAAAAAARQEAAAAAAAABAAAAYQ",
+					"AQAAAAAAAAABAAAARgEAAAAAAABGAQAAAAAAAAAAAAAAAPC/"
 				]
 			]
 		},
 		{
+			"contents": "#include \"Map.hpp\"\n#include \"Game.hpp\"\n#include <fstream>\n#include \"ECS.hpp\"\n#include \"Components.hpp\"\n\nMap::Map(std::string tID, int ms, int ts) : texID(tID), mapScale(ms), tileSize(ts)\n{\n\tscaledSize = ms*ts;\n}\n\nMap::~Map() {\n\t\n}\n\n\nextern Manager manager;\n\n\nvoid Map::LoadMap(std::string path, int sizex, int sizey)\n{\n\tchar c;\n\tstd::fstream mapFile;\n\tmapFile.open(path);\n\n\tint srcX, srcY;\n\n\tfor (int y = 0; y < sizey; y++)\n\t{\n\t\tfor (int x = 0; x < sizex; x++)\n\t\t{\n\t\t\t\n\t\t\tmapFile.get(c);\n\n\t\t\tif (c == 10 || c == 13) {\n\t\t\t\tmapFile.get(c);\n\t\t\t\tif (c == 10 || c == 13) {\n\t\t\t\t\tmapFile.get(c);\n\t\t\t\t}\n\t\t\t}\n\n\t\t\tsrcY = atoi(&c) * tileSize;\n\t\t\tmapFile.get(c);\n\n\t\t\tif (c == 10 || c == 13) {\n\t\t\t\tmapFile.get(c);\n\t\t\t\tif (c == 10 || c == 13) {\n\t\t\t\t\tmapFile.get(c);\n\t\t\t\t}\n\t\t\t}\n\n\t\t\tsrcX = atoi(&c) * tileSize;\n\t\t\tAddTile(srcX, srcY, x*scaledSize, y*scaledSize);\n\t\t\tmapFile.ignore();\n\t\t}\n\t}\n\n\tmapFile.ignore();\n\t//std::cout<<(int)c<<std::endl;\n\tfor (int y = 0; y < sizey; y++)\n\t{\n\t\tfor (int x = 0; x < sizex; x++)\n\t\t{\n\t\t\tmapFile.get(c);\n\t\t\tif (c == 10 || c == 13 || c ==',') {\n\t\t\t\tmapFile.get(c);\n\t\t\t\tif (c == 10 || c == 13 || c == ',') {\n\t\t\t\t\tmapFile.get(c);\n\t\t\t\t}\n\t\t\t}\n\t\t\t//dstd::cout<<(int)c<<std::endl;\n\t\t\tif (c == 49)\n\t\t\t{\n\t\t\t\tauto& tcol(manager.addEntity());\n\t\t\t\ttcol.addComponent<ColliderComponent>(\"terrain\", x * scaledSize, y * scaledSize, scaledSize);\n\t\t\t\ttcol.addGroup(Game::groupColliders);\n\t\t\t}\n\t\t\tmapFile.ignore();\n\t\t}\n\t}\n\n\tmapFile.close();\n}\n\n\nvoid Map::AddTile(int srX, int srY, int xpos, int ypos)\n{\n\tauto& tile(manager.addEntity());\n\ttile.addComponent<TileComponent>(srX, srY, xpos, ypos, tileSize, mapScale, texID);\n\ttile.addGroup(Game::groupMap);\n}\n",
 			"file": "src/Map.cpp",
+			"file_size": 1743,
+			"file_write_time": 133485125645854731,
 			"settings":
 			{
-				"buffer_size": 1650,
+				"buffer_size": 1653,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			},
 			"undo_stack":
 			[
 				[
-					5,
+					3,
 					1,
-					"left_delete",
+					"insert",
+					{
+						"characters": "//"
+					},
+					"AgAAAIYEAAAAAAAAhwQAAAAAAAAAAAAAhwQAAAAAAACIBAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAhgQAAAAAAACGBAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					4,
+					1,
+					"insert",
+					{
+						"characters": "d"
+					},
+					"AQAAAIgEAAAAAAAAiQQAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAiAQAAAAAAACIBAAAAAAAAAAAAAAAAPC/"
+				]
+			]
+		},
+		{
+			"file": "include/Game.hpp",
+			"settings":
+			{
+				"buffer_size": 826,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			},
+			"undo_stack":
+			[
+				[
+					4,
+					1,
+					"paste",
 					null,
-					"AQAAAIAAAAAAAAAAgAAAAAAAAAABAAAAOw",
-					"AQAAAAAAAAABAAAAgQAAAAAAAACBAAAAAAAAAAAAAAAAAPC/"
+					"AgAAAAAAAAAAAAAAOgMAAAAAAAAAAAAAOgMAAAAAAAA6AwAAAAAAACYDAAAjcHJhZ21hIG9uY2UKI2luY2x1ZGUgPFNETDIvU0RMLmg+CiNpbmNsdWRlICJTREwyL1NETF9pbWFnZS5oIgojaW5jbHVkZSA8aW9zdHJlYW0+CiNpbmNsdWRlICJUZXh0dXJlTWFuYWdlci5ocHAiCiNpbmNsdWRlIDx2ZWN0b3I+CiNpbmNsdWRlICJBc3NldE1hbmFnZXIuaHBwIgoKY2xhc3MgQXNzZXRNYW5hZ2VyOwpjbGFzcyBDb2xsaWRlckNvbXBvbmVudDsKCmNsYXNzIEdhbWUgewpwdWJsaWM6CglHYW1lKCk7Cgl+R2FtZSgpOwoKCXZvaWQgaW5pdChjb25zdCBjaGFyKiB0aXRsZSwgaW50IHgsIGludCB5LCBpbnQgd2lkdGgsIGludCBoZWlnaHQsIGJvb2wgZnVsbHNjcmVlbik7Cgl2b2lkIGhhbmRsZUV2ZW50cygpOwoJdm9pZCB1cGRhdGUoKTsKCXZvaWQgcmVuZGVyKCk7Cgl2b2lkIGNsZWFuKCk7Cglib29sIHJ1bm5pbmcoKSB7IHJldHVybiBpc1J1bm5pbmc7IH0KCglzdGF0aWMgU0RMX1JlbmRlcmVyKiByZW5kZXJlcjsKCXN0YXRpYyBTRExfRXZlbnQgZXZlbnQ7CgkvL3N0YXRpYyBzdGQ6OnZlY3RvcjxDb2xsaWRlckNvbXBvbmVudCo+IGNvbGxpZGVyczsKCXN0YXRpYyBib29sIGlzUnVubmluZzsKCXN0YXRpYyBTRExfUmVjdCBjYW1lcmE7CglzdGF0aWMgQXNzZXRNYW5hZ2VyKiBhc3NldHM7CgoJZW51bSBncm91cExhYmVscyA6IHN0ZDo6c2l6ZV90Cgl7CgkJZ3JvdXBNYXAsCgkJZ3JvdXBQbGF5ZXIsCgkJZ3JvdXBFbmVtaWVzLAoJCWdyb3VwQ29sbGlkZXJzCgl9OwoKCgoKcHJpdmF0ZToKCWludCBjbnQ9MDsKCS8vYm9vbCBpc1J1bm5pbmc9MDsKCVNETF9XaW5kb3cqIHdpbmRvdz1udWxscHRyOwp9Ow",
+					"AQAAAAAAAAABAAAAAAAAAAAAAAAmAwAAAAAAAAAAAAAAAPC/"
 				]
 			]
 		}
@@ -580,12 +283,18 @@
 	},
 	"expanded_folders":
 	[
-		"/home/tony/Documents/cppProjects/sdl2_learning_gamedev-eeb044f3697e8f85141fa22d2d476e420fc39a6d",
-		"/home/tony/Documents/cppProjects/sdl2_learning_gamedev-eeb044f3697e8f85141fa22d2d476e420fc39a6d/include",
-		"/home/tony/Documents/cppProjects/sdl2_learning_gamedev-eeb044f3697e8f85141fa22d2d476e420fc39a6d/src"
+		"/home/tony/Documents/cppProjects/sdl2_learning_gamedev2",
+		"/home/tony/Documents/cppProjects/sdl2_learning_gamedev2/include",
+		"/home/tony/Documents/cppProjects/sdl2_learning_gamedev2/src"
 	],
 	"file_history":
 	[
+		"/home/tony/Documents/cppProjects/sdl2_learning_gamedev2/src/Game.cpp",
+		"/home/tony/Documents/cppProjects/sdl2_learning_gamedev2/src/Map.cpp",
+		"/home/tony/Documents/cppProjects/sdl2_learning_gamedev2/src/AssetManager.cpp",
+		"/home/tony/Documents/cppProjects/sdl2_learning_gamedev2/include/AssetManager.hpp",
+		"/home/tony/Documents/cppProjects/sdl2_learning_gamedev2/include/Components.hpp",
+		"/home/tony/Documents/cppProjects/sdl2_learning_gamedev2/include/ProjectileComponent.hpp",
 		"/home/tony/Documents/cppProjects/sdl2_learning_gamedev-eeb044f3697e8f85141fa22d2d476e420fc39a6d/include/Game.hpp",
 		"/home/tony/Documents/cppProjects/sdl2_learning_gamedev-eeb044f3697e8f85141fa22d2d476e420fc39a6d/include/TileComponent.hpp",
 		"/home/tony/Documents/cppProjects/sdl2_learning_gamedev-eeb044f3697e8f85141fa22d2d476e420fc39a6d/include/SpriteComponent.hpp",
@@ -679,8 +388,8 @@
 						"selection":
 						[
 							[
-								70,
-								70
+								325,
+								325
 							]
 						],
 						"settings":
@@ -699,20 +408,20 @@
 				},
 				{
 					"buffer": 1,
-					"file": "src/Game.cpp",
+					"file": "src/Map.cpp",
 					"selected": true,
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3565,
+						"buffer_size": 1653,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								308,
-								308
+								1161,
+								1161
 							]
 						],
 						"settings":
@@ -722,7 +431,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 720.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
@@ -731,19 +440,19 @@
 				},
 				{
 					"buffer": 2,
-					"file": "src/Map.cpp",
+					"file": "include/Game.hpp",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1650,
+						"buffer_size": 826,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								128,
-								128
+								826,
+								826
 							]
 						],
 						"settings":
@@ -753,7 +462,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 161.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 2,
@@ -844,7 +553,7 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 259.0,
+	"side_bar_width": 266.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{
