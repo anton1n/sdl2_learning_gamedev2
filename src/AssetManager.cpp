@@ -39,3 +39,12 @@ void AssetManager::CreateProjectile(Vector2D pos, Vector2D vel, int range, int s
  	projectile.addComponent<ColliderComponent>("projectile");
  	projectile.addGroup(Game::groupProjectiles);
 }
+
+void AssetManager::AddFont(std::string id, std::string path, int fontSize)
+{
+	fonts.emplace(id, TTF_OpenFont(path.c_str(),fontSize));
+}
+TTF_Font* AssetManager::GetFont(std::string id)
+{
+	return fonts[id];
+}
