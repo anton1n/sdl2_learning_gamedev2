@@ -6,8 +6,15 @@
 #include <vector>
 #include "AssetManager.hpp"
 
+
 class AssetManager;
 class ColliderComponent;
+
+	enum GameState 
+	{
+	    START_MENU,
+	    PLAYING
+	};
 
 class Game {
 public:
@@ -20,6 +27,7 @@ public:
 	void render();
 	void clean();
 	bool running() { return isRunning; }
+	void start_menu();
 
 	static SDL_Renderer* renderer;
 	static SDL_Event event;
@@ -27,6 +35,8 @@ public:
 	static bool isRunning;
 	static SDL_Rect camera;
 	static AssetManager* assets;
+
+	static GameState gameState;
 
 	enum groupLabels : std::size_t
 	{
@@ -44,4 +54,5 @@ private:
 	int cnt=0;
 	//bool isRunning=0;
 	SDL_Window* window=nullptr;
+	
 };

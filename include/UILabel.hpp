@@ -38,6 +38,11 @@ public:
 		SDL_RenderCopy(Game::renderer, labelTexture, nullptr, &position);
 	}
 
+	void destroy()
+	{
+		//TTF_CloseFont(Game::assets->GetFont(labelFont));
+	}
+
 private:
 	SDL_Rect position;
 	std::string labelText;
