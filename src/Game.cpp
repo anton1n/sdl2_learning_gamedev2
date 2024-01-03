@@ -124,23 +124,28 @@ void Game::handleEvents()
 
 	SDL_PollEvent(&event);
 
-	if(gameState == START_MENU)
+	if(gameState == START_MENU && event.key.keysym.sym == SDLK_ESCAPE)
 	{
-		if event.type = 
-	}
-	switch (event.type)
-	{
-	case SDL_QUIT:
 		isRunning = false;
-		break;
-	case SDL_KEYUP:
-		if(gameState == START_MENU)
-			gameState = PLAYING;
-		break;
-	default:
-		break;
+	}
+	else
+	{
+		switch (event.type)
+		{
+		case SDL_QUIT:
+			isRunning = false;
+			break;
+		case SDL_KEYUP:
+			if(gameState == START_MENU)
+				gameState = PLAYING;
+			break;
+		default:
+			break;
+		}
 	}
 }
+
+	
 
 void Game::update() {
 
