@@ -23,6 +23,12 @@ public:
 		position.x = x;
 		position.y = y;
 	}
+    TransformComponent(float x, float y, int speed)
+    {
+        position.x = x;
+        position.y = y;
+        this->speed = speed;
+    }
 	TransformComponent(int sc)
 	{
 		position.x = 400;

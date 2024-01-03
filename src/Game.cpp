@@ -6,9 +6,6 @@
 #include "Collision.hpp"
 #include <sstream>
 
-//SDL_Texture* playerTex;
-//SDL_Rect srcR, destR;
-
 SDL_Renderer* Game::renderer = nullptr;
 Map* map;
 
@@ -25,6 +22,7 @@ AssetManager* Game::assets = new AssetManager(&manager);
 auto& player(manager.addEntity());
 auto& label(manager.addEntity());
 auto& label1(manager.addEntity());
+auto& enemy(manager.addEntity());
 
 bool Game::isRunning = false;
 
@@ -33,10 +31,6 @@ bool Game::isRunning = false;
 GameState Game::gameState;
 
 //auto& enemies(manager.getGroup(groupEnemies));
-
-//auto& tile0(manager.addEntity());
-//auto& tile1(manager.addEntity());
-//auto& tile2(manager.addEntity());
 
 Game::Game() {
 
@@ -73,40 +67,37 @@ void Game::init(const char* title, int x, int y, int width, int height, bool ful
 		isRunning = false;
 	}
 
-	//playerTex = TextureManager::LoadTexture("Assets/player.png", renderer);
-	//player = new GameObject("Assets/simple_knight.png", 0, 0);
-	//enemy = new GameObject("Assets/player1.png", 50, 50);
-
-	//map = new Map("res/terrain_ss.png",3,32);
 
 	if(TTF_Init() == -1)
 	{
 		std::cout<<"Error: SDL_TTF"<<std::endl;
 	}
 
-	
-
-    //label.destroy();
-
-	assets->AddTexture("terrain", "res/terrain_ss.png");
-	assets->AddTexture("player", "res/player_anims.png");
-	assets->AddTexture("projectile", "res/proj.png");
-	assets->AddFont("arial", "res/arial.ttf", 16);	
-	assets->AddFont("arial_start", "res/arial.ttf", 36);	
+	assets->AddTexture("terrain", "../res/terrain_ss.png");
+	assets->AddTexture("player", "../res/player_anims.png");
+	assets->AddTexture("projectile", "../res/proj.png");
+	assets->AddFont("arial", "../res/arial.ttf", 16);
+	assets->AddFont("arial_start", "../res/arial.ttf", 36);
 	SDL_Color white = {255, 255, 255, 255};
+    SDL_Color red = {255,0,0,0};
 
 	
 	map = new Map("terrain",3,32);
-	map->LoadMap("res/map.map", 25, 20);
+	map->LoadMap("../res/map.map", 25, 20);
 	
 	player.addComponent<TransformComponent>(4);
 	player.addComponent<SpriteComponent>("player",true);
 	player.addComponent<KeyboardController>();
 	player.addComponent<ColliderComponent>("player");
 	player.addGroup(groupPlayer);
+
+    enemy.addComponent<TransformComponent>(450, 650, 1);
+    enemy.addComponent<SpriteComponent>("player",true);
+    enemy.addComponent<EnemyComponent>(200);
+    enemy.addGroup(groupEnemies);
 	
 	label.addComponent<UILabel>(10, 10, "Test String", "arial", white);
-	label1.addComponent<UILabel>(300, 200, "start", "arial_start", white);
+	label1.addComponent<UILabel>(150, 300, "start", "arial_start", red);
 
 	assets->CreateProjectile(Vector2D(600, 600), Vector2D(2,0),200, 2, "projectile");
 
@@ -116,7 +107,7 @@ void Game::init(const char* title, int x, int y, int width, int height, bool ful
 auto& tiles(manager.getGroup(Game::groupMap));
 auto& players(manager.getGroup(Game::groupPlayer));
 auto& colliders(manager.getGroup(Game::groupColliders));
-//auto& enemies(manager.getGroup(Game::groupEnemies));
+auto& enemies(manager.getGroup(Game::groupEnemies));
 auto& projectiles(manager.getGroup(Game::groupProjectiles));
 
 void Game::handleEvents()
@@ -152,7 +143,8 @@ void Game::update() {
 	switch(gameState)
 	{
 		case START_MENU:
-			start_menu();
+			//start_menu();
+            label1.getComponent<UILabel>().SetLabelText("Press any key to start the game", "arial_start");
 			break;
 
 		case PLAYING:
@@ -175,7 +167,8 @@ void Game::update() {
 				}
 			}
 
-			
+            enemy.getComponent<EnemyComponent>().rangeCheck(playerPos);
+
 			for (auto& p : projectiles)
 			{
 				if (Collision::AABB(player.getComponent<ColliderComponent>().collider, p->getComponent<ColliderComponent>().collider))
@@ -216,7 +209,8 @@ void Game::render() {
 	switch(gameState)
 	{
 		case START_MENU:
-			start_menu();
+			//start_menu();
+            label1.draw();
 			break;
 		case PLAYING:
 			
@@ -236,6 +230,10 @@ void Game::render() {
 			{
 				p->draw();
 			}
+            for (auto& p : enemies)
+            {
+                p->draw();
+            }
 
 			label.draw();
 			
@@ -253,10 +251,13 @@ void Game::clean() {
 
 void Game::start_menu()
 {
-	SDL_RenderClear(renderer);
-
     label1.getComponent<UILabel>().SetLabelText("Press any key to start the game", "arial_start");
+    //manager.refresh();
+    //manager.update();
+	//SDL_RenderClear(renderer);
+
+
     label1.draw();
 
-    SDL_RenderPresent(renderer);
+    //SDL_RenderPresent(renderer);
 }
