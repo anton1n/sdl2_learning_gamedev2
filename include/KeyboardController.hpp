@@ -39,13 +39,21 @@ public:
 				transform->velocity.y = 1;
 				sprite->Play("Walk");
                 break;
-            case SDLK_RCTRL:
+            case SDLK_RCTRL: {
+                int a = transform->velocity.x;
+                int b = transform->velocity.y;
+                if (!a && !b) {
+                    b = -1;
+                }
                 Game::assets->CreateProjectile(
-                        Vector2D(entity->getComponent<TransformComponent>().position.x+45 ,
-                                 transform->velocity.y == 1 ? entity->getComponent<TransformComponent>().position.y+150 :entity->getComponent<TransformComponent>().position.y-50),
-                        Vector2D(transform->velocity.x,transform->velocity.y ? transform->velocity.y: -1),
+                        Vector2D(entity->getComponent<TransformComponent>().position.x + 45,
+                                 transform->velocity.y == 1 ? entity->getComponent<TransformComponent>().position.y +
+                                                              150 :
+                                 entity->getComponent<TransformComponent>().position.y - 50),
+                        Vector2D(a, b),
                         200, 1, "projectile");
                 break;
+            }
 			default:
 				break;
 			}

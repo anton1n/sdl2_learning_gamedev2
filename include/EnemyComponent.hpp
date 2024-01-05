@@ -38,6 +38,8 @@ public:
     }
     void rangeCheck(Vector2D &playerPos){
 
+        if(!entity->isActive())
+            return;
         int distance = static_cast<int>(
                 sqrt( (transform->position.x - playerPos.x)*(transform->position.x - playerPos.x) +
                       (transform->position.y - playerPos.y)*(transform->position.y - playerPos.y))

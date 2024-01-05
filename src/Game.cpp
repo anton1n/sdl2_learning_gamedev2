@@ -89,7 +89,7 @@ void Game::init(const char* title, int x, int y, int width, int height, bool ful
 	player.addComponent<SpriteComponent>("player",true);
 	player.addComponent<KeyboardController>();
 	player.addComponent<ColliderComponent>("player");
-    player.addComponent<HealthComponent>(10);
+    //player.addComponent<HealthComponent>(10);
 	player.addGroup(groupPlayer);
 
     enemy.addComponent<TransformComponent>(450, 650, 1);
@@ -172,7 +172,10 @@ void Game::update() {
 				}
 			}
 
-            enemy.getComponent<EnemyComponent>().rangeCheck(playerPos);
+            for(auto e: enemies)
+            {
+                e->getComponent<EnemyComponent>().rangeCheck(playerPos);
+            }
 
 			for (auto& p : projectiles)
 			{
@@ -180,13 +183,16 @@ void Game::update() {
 				{
 					//std::cout << Collision::x << std::endl;
 					//p->destroy();
-                    player.getComponent<HealthComponent>().hit();
+                    //player.getComponent<HealthComponent>().hit();
 				}
-                if (Collision::AABB(enemy.getComponent<ColliderComponent>(), p->getComponent<ColliderComponent>()))
+                for(auto e: enemies)
                 {
-                    enemy.getComponent<HealthComponent>().hit();
-                }
+                    if (Collision::AABB(e->getComponent<ColliderComponent>(),
+                                        p->getComponent<ColliderComponent>())) {
+                        e->getComponent<HealthComponent>().hit();
 
+                    }
+                }
 			}
 
 
