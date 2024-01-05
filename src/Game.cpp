@@ -1,10 +1,10 @@
 #include "Game.hpp"
-//#include "GameObject.hpp"
 #include "Map.hpp"
 #include "Components.hpp"
 #include "Vector2D.hpp"
 #include "Collision.hpp"
 #include <sstream>
+
 
 SDL_Renderer* Game::renderer = nullptr;
 Map* map;
@@ -89,19 +89,24 @@ void Game::init(const char* title, int x, int y, int width, int height, bool ful
 	player.addComponent<SpriteComponent>("player",true);
 	player.addComponent<KeyboardController>();
 	player.addComponent<ColliderComponent>("player");
+    player.addComponent<HealthComponent>(10);
 	player.addGroup(groupPlayer);
 
     enemy.addComponent<TransformComponent>(450, 650, 1);
     enemy.addComponent<SpriteComponent>("player",true);
     enemy.addComponent<EnemyComponent>(200);
+    enemy.addComponent<ColliderComponent>("enemy");
+    enemy.addComponent<HealthComponent>(1);
     enemy.addGroup(groupEnemies);
 	
 	label.addComponent<UILabel>(10, 10, "Test String", "arial", white);
 	label1.addComponent<UILabel>(150, 300, "start", "arial_start", red);
 
-	assets->CreateProjectile(Vector2D(600, 600), Vector2D(2,0),200, 2, "projectile");
+	//assets->CreateProjectile(Vector2D(600, 600), Vector2D(2,0),200, 1, "projectile");
+    //assets->CreateProjectile(Vector2D(400, 650), Vector2D(1,0),200, 1, "projectile");
 
-	gameState = START_MENU;
+
+    gameState = START_MENU;
 }
 
 auto& tiles(manager.getGroup(Game::groupMap));
@@ -173,10 +178,19 @@ void Game::update() {
 			{
 				if (Collision::AABB(player.getComponent<ColliderComponent>().collider, p->getComponent<ColliderComponent>().collider))
 				{
-					std::cout << "Hit player!" << std::endl;
-					p->destroy();
+					//std::cout << Collision::x << std::endl;
+					//p->destroy();
+                    player.getComponent<HealthComponent>().hit();
 				}
+                if (Collision::AABB(enemy.getComponent<ColliderComponent>(), p->getComponent<ColliderComponent>()))
+                {
+                    enemy.getComponent<HealthComponent>().hit();
+                }
+
 			}
+
+
+
 
 			camera.x = player.getComponent<TransformComponent>().position.x - 400;
 			camera.y = player.getComponent<TransformComponent>().position.y - 320;

@@ -10,6 +10,8 @@
 class AssetManager;
 class ColliderComponent;
 
+
+
 	enum GameState 
 	{
 	    START_MENU,
@@ -52,7 +54,6 @@ public:
 
 private:
 	int cnt=0;
-	//bool isRunning=0;
 	SDL_Window* window=nullptr;
 	
 };

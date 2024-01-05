@@ -38,6 +38,14 @@ public:
 			case SDLK_s:
 				transform->velocity.y = 1;
 				sprite->Play("Walk");
+                break;
+            case SDLK_RCTRL:
+                Game::assets->CreateProjectile(
+                        Vector2D(entity->getComponent<TransformComponent>().position.x+45 ,
+                                 transform->velocity.y == 1 ? entity->getComponent<TransformComponent>().position.y+150 :entity->getComponent<TransformComponent>().position.y-50),
+                        Vector2D(transform->velocity.x,transform->velocity.y ? transform->velocity.y: -1),
+                        200, 1, "projectile");
+                break;
 			default:
 				break;
 			}
