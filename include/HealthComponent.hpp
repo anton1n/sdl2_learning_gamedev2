@@ -2,12 +2,14 @@
 
 #include "ECS.hpp"
 #include "Collision.hpp"
+#include "Game.hpp"
 
 class HealthComponent: public Component
 {
 private:
     int healthPoints;
 public:
+    bool hasDied = false;
     //std::map<const char*, HP> animations;
     HealthComponent(int hp) : healthPoints(hp)
     {}
@@ -22,13 +24,27 @@ public:
     {
         if(healthPoints <= 0)
         {
-            entity->destroy();
+            if(entity->hasComponent<EnemyComponent>())
+                entity->destroy();
+            else{
+                Game::gameState = START_MENU;
+            }
         }
     }
 
     void hit()
     {
         healthPoints--;
+    }
+
+    int getHealth()
+    {
+        return healthPoints;
+    }
+
+    void setHealth(int h)
+    {
+        healthPoints = h;
     }
 
 };

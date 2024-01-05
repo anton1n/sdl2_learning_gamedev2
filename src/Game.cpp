@@ -24,6 +24,8 @@ auto& label(manager.addEntity());
 auto& label1(manager.addEntity());
 auto& enemy(manager.addEntity());
 
+auto& endGameLabel(manager.addEntity());
+
 bool Game::isRunning = false;
 
 
@@ -89,20 +91,21 @@ void Game::init(const char* title, int x, int y, int width, int height, bool ful
 	player.addComponent<SpriteComponent>("player",true);
 	player.addComponent<KeyboardController>();
 	player.addComponent<ColliderComponent>("player");
-    //player.addComponent<HealthComponent>(10);
+    player.addComponent<HealthComponent>(1);
 	player.addGroup(groupPlayer);
 
-    enemy.addComponent<TransformComponent>(450, 650, 1);
-    enemy.addComponent<SpriteComponent>("player",true);
-    enemy.addComponent<EnemyComponent>(200);
-    enemy.addComponent<ColliderComponent>("enemy");
-    enemy.addComponent<HealthComponent>(1);
-    enemy.addGroup(groupEnemies);
+//    enemy.addComponent<TransformComponent>(450, 650, 1);
+//    enemy.addComponent<SpriteComponent>("player",true);
+//    enemy.addComponent<EnemyComponent>(200);
+//    enemy.addComponent<ColliderComponent>("enemy");
+//    enemy.addComponent<HealthComponent>(1);
+//    enemy.addGroup(groupEnemies);
 	
 	label.addComponent<UILabel>(10, 10, "Test String", "arial", white);
-	label1.addComponent<UILabel>(150, 300, "start", "arial_start", red);
-
-	//assets->CreateProjectile(Vector2D(600, 600), Vector2D(2,0),200, 1, "projectile");
+	label1.addComponent<UILabel>(150, 300, "Press any key to start the game", "arial_start", red);
+    endGameLabel.addComponent<UILabel>(150, 250, "You died!", "arial_start", red);
+    //label1.getComponent<UILabel>().SetLabelText("Press any key to start the game", "arial_start");
+	assets->CreateProjectile(Vector2D(800, 600), Vector2D(-1,0),500, 1, "projectile");
     //assets->CreateProjectile(Vector2D(400, 650), Vector2D(1,0),200, 1, "projectile");
 
 
@@ -149,10 +152,12 @@ void Game::update() {
 	{
 		case START_MENU:
 			//start_menu();
-            label1.getComponent<UILabel>().SetLabelText("Press any key to start the game", "arial_start");
+            //label1.getComponent<UILabel>().SetLabelText("Press any key to start the game", "arial_start");
+            //endGameLabel.getComponent<UILabel>().SetLabelText("You died!", "arial_start");
 			break;
 
 		case PLAYING:
+            player.getComponent<HealthComponent>().hasDied = false;
 			SDL_Rect playerCol = player.getComponent<ColliderComponent>().collider;
 			Vector2D playerPos = player.getComponent<TransformComponent>().position;
 
@@ -182,15 +187,15 @@ void Game::update() {
 				if (Collision::AABB(player.getComponent<ColliderComponent>().collider, p->getComponent<ColliderComponent>().collider))
 				{
 					//std::cout << Collision::x << std::endl;
-					//p->destroy();
-                    //player.getComponent<HealthComponent>().hit();
+					p->destroy();
+                    player.getComponent<HealthComponent>().hit();
 				}
                 for(auto e: enemies)
                 {
                     if (Collision::AABB(e->getComponent<ColliderComponent>(),
                                         p->getComponent<ColliderComponent>())) {
                         e->getComponent<HealthComponent>().hit();
-
+                        p->destroy();
                     }
                 }
 			}
@@ -229,8 +234,8 @@ void Game::render() {
 	switch(gameState)
 	{
 		case START_MENU:
-			//start_menu();
-            label1.draw();
+			start_menu();
+            //label1.draw();
 			break;
 		case PLAYING:
 			
@@ -271,13 +276,14 @@ void Game::clean() {
 
 void Game::start_menu()
 {
-    label1.getComponent<UILabel>().SetLabelText("Press any key to start the game", "arial_start");
-    //manager.refresh();
-    //manager.update();
-	//SDL_RenderClear(renderer);
+    if(player.getComponent<HealthComponent>().hasDied || !player.getComponent<HealthComponent>().getHealth())
+    {
+        endGameLabel.draw();
+        player.getComponent<HealthComponent>().setHealth(1);
+        //assets->CreateProjectile(Vector2D(800, 600), Vector2D(-1,0),500, 1, "projectile");
+        player.getComponent<HealthComponent>().hasDied = true;
+    }
 
-
+    // endGameLabel.draw();
     label1.draw();
-
-    //SDL_RenderPresent(renderer);
 }
