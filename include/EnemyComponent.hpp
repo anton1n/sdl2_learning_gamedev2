@@ -49,11 +49,22 @@ public:
             double angle = atan2(playerPos.y - transform->position.y, playerPos.x - transform->position.x);
 
             velocity = Vector2D(cos(angle), sin(angle));
-            if( velocity.x < 0)
-                sprite->spriteFlip = SDL_FLIP_HORIZONTAL;
-            else
-                sprite->spriteFlip = SDL_FLIP_NONE;
-            sprite->Play("Walk");
+            if(velocity.y>0 && velocity.x< velocity.y)
+            {
+                sprite->Play("WalkDown");
+            }
+            else if(velocity.y<0 && velocity.x < velocity.y)
+            {
+                sprite->Play("WalkUp");
+            }
+            else{
+                if( velocity.x > 0)
+                    sprite->spriteFlip = SDL_FLIP_HORIZONTAL;
+                else
+                    sprite->spriteFlip = SDL_FLIP_NONE;
+                sprite->Play("WalkSideways");
+            }
+
         }
         else {
             velocity = Vector2D(0, 0);

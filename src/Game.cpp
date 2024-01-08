@@ -17,8 +17,6 @@ SDL_Rect Game::camera = {0,0,800,640};
 
 AssetManager* Game::assets = new AssetManager(&manager);
 
-//std::vector<ColliderComponent*> Game::colliders;
-
 auto& player(manager.addEntity());
 auto& label(manager.addEntity());
 auto& label1(manager.addEntity());
@@ -76,7 +74,8 @@ void Game::init(const char* title, int x, int y, int width, int height, bool ful
 	}
 
 	assets->AddTexture("terrain", "../res/terrain_ss.png");
-	assets->AddTexture("player", "../res/player_anims.png");
+	assets->AddTexture("player", "../res/doomGuy-walkSprites.png");
+    assets->AddTexture("imp", "../res/imp-walkSprites.png");
 	assets->AddTexture("projectile", "../res/proj.png");
 	assets->AddFont("arial", "../res/arial.ttf", 16);
 	assets->AddFont("arial_start", "../res/arial.ttf", 36);
@@ -87,26 +86,24 @@ void Game::init(const char* title, int x, int y, int width, int height, bool ful
 	map = new Map("terrain",3,32);
 	map->LoadMap("../res/map.map", 25, 20);
 	
-	player.addComponent<TransformComponent>(4);
+	//player.addComponent<TransformComponent>(4);
+    player.addComponent<TransformComponent>(400,600,86,64,1);
 	player.addComponent<SpriteComponent>("player",true);
 	player.addComponent<KeyboardController>();
 	player.addComponent<ColliderComponent>("player");
     player.addComponent<HealthComponent>(1);
 	player.addGroup(groupPlayer);
 
-//    enemy.addComponent<TransformComponent>(450, 650, 1);
-//    enemy.addComponent<SpriteComponent>("player",true);
-//    enemy.addComponent<EnemyComponent>(200);
-//    enemy.addComponent<ColliderComponent>("enemy");
-//    enemy.addComponent<HealthComponent>(1);
-//    enemy.addGroup(groupEnemies);
-	
+    enemy.addComponent<TransformComponent>(450, 650, 64, 64, 2, 1);
+    enemy.addComponent<SpriteComponent>("imp",true);
+    enemy.addComponent<EnemyComponent>(200);
+    enemy.addComponent<ColliderComponent>("enemy");
+    enemy.addComponent<HealthComponent>(1);
+    enemy.addGroup(groupEnemies);
+
 	label.addComponent<UILabel>(10, 10, "Test String", "arial", white);
 	label1.addComponent<UILabel>(150, 300, "Press any key to start the game", "arial_start", red);
     endGameLabel.addComponent<UILabel>(150, 250, "You died!", "arial_start", red);
-    //label1.getComponent<UILabel>().SetLabelText("Press any key to start the game", "arial_start");
-	assets->CreateProjectile(Vector2D(800, 600), Vector2D(-1,0),500, 1, "projectile");
-    //assets->CreateProjectile(Vector2D(400, 650), Vector2D(1,0),200, 1, "projectile");
 
 
     gameState = START_MENU;

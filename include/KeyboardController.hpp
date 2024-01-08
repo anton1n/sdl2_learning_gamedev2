@@ -24,20 +24,21 @@ public:
 			{
 			case SDLK_w:
 				transform->velocity.y = -1;
-				sprite->Play("Walk");
+				sprite->Play("WalkUp");
 				break;
 			case SDLK_a:
 				transform->velocity.x = -1;
-				sprite->Play("Walk");
-				sprite->spriteFlip = SDL_FLIP_HORIZONTAL;
+				sprite->Play("WalkSideways");
+
 				break;
 			case SDLK_d:
 				transform->velocity.x = 1;
-				sprite->Play("Walk");
+				sprite->Play("WalkSideways");
+                sprite->spriteFlip = SDL_FLIP_HORIZONTAL;
 				break;
 			case SDLK_s:
 				transform->velocity.y = 1;
-				sprite->Play("Walk");
+				sprite->Play("WalkDown");
                 break;
             case SDLK_RCTRL: {
                 int a = transform->velocity.x;
@@ -45,13 +46,42 @@ public:
                 if (!a && !b) {
                     b = -1;
                 }
+                int c = entity->getComponent<TransformComponent>().position.x;
+                int d = entity->getComponent<TransformComponent>().position.y;
+//                Game::assets->CreateProjectile(
+//                        Vector2D(entity->getComponent<TransformComponent>().position.x + 45,
+//                                 transform->velocity.y == 1 ? entity->getComponent<TransformComponent>().position.y +
+//                                                              150 :
+//                                 entity->getComponent<TransformComponent>().position.y - 50),
+//                        Vector2D(a, b),
+//                        200, 1, "projectile");
+                //transform->velocity.y == 1 ? d+=150 : d-=50;
+                if(transform->velocity.y == 1 && transform->velocity.x !=transform->velocity.y)
+                {
+                    d+=100;
+                    c+=20;
+                }
+                else if(transform->velocity.y == -1 && transform->velocity.x !=transform->velocity.y)
+                {
+                    d-=75;
+                    c+=20;
+                }
+                else{
+                    if(transform->velocity.x == 1)
+                    {
+                        c+=100;
+                    }
+                    else if(transform->velocity.x == -1)
+                    {
+                        c-=75;
+                    }
+                    else{
+                        d-=50;
+                        c+=20 ;
+                    }
+                }
                 Game::assets->CreateProjectile(
-                        Vector2D(entity->getComponent<TransformComponent>().position.x + 45,
-                                 transform->velocity.y == 1 ? entity->getComponent<TransformComponent>().position.y +
-                                                              150 :
-                                 entity->getComponent<TransformComponent>().position.y - 50),
-                        Vector2D(a, b),
-                        200, 1, "projectile");
+                        Vector2D(c,d),Vector2D(a, b),200, 1, "projectile");
                 break;
             }
 			default:
@@ -69,11 +99,12 @@ public:
 			case SDLK_a:
 				transform->velocity.x = 0;
 				sprite->Play("Idle");
-				sprite->spriteFlip = SDL_FLIP_NONE;
+
 				break;
 			case SDLK_d:
 				transform->velocity.x = 0;
 				sprite->Play("Idle");
+                sprite->spriteFlip = SDL_FLIP_NONE;
 				break;
 			case SDLK_s:
 				transform->velocity.y = 0;
