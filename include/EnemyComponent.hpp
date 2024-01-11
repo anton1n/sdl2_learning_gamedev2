@@ -4,7 +4,8 @@
 #include "Components.hpp"
 #include "Vector2D.hpp"
 #include "Game.hpp"
-//#include <cmath>
+#include <stdlib.h>
+#include <time.h>
 
 
 class EnemyComponent: public Component
@@ -15,7 +16,9 @@ private:
     //Vector2D* playerPos;
     int detectionRadius;
     Vector2D velocity;
+
 public:
+    //Vector2D previousPosition;
     EnemyComponent( int dr) : detectionRadius(dr)
     {
         velocity = Vector2D();
@@ -29,6 +32,7 @@ public:
         sprite = &entity->getComponent<SpriteComponent>();
         transform = &entity->getComponent<TransformComponent>();
         transform->velocity = velocity;
+        //previousPosition = transform->position;
     }
 
     void update() override
@@ -64,6 +68,14 @@ public:
                     sprite->spriteFlip = SDL_FLIP_NONE;
                 sprite->Play("WalkSideways");
             }
+
+//            srand(time(NULL));
+//            if(rand() % 5 == 1)
+//            {
+//                Game::assets->CreateProjectile(
+//                        Vector2D(transform->position.x, velocity.y == 1 ? transform->position.y + 75 : transform->position.y -50),
+//                        Vector2D(velocity.x, velocity.y),200, 1, "projectile");
+//            }
 
         }
         else {

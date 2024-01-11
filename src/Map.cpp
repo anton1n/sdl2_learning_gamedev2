@@ -68,7 +68,6 @@ void Map::LoadMap(std::string path, int sizex, int sizey)
 					mapFile.get(c);
 				}
 			}
-			//dstd::cout<<(int)c<<std::endl;
 			if (c == 49)
 			{
 				auto& tcol(manager.addEntity());
@@ -78,6 +77,41 @@ void Map::LoadMap(std::string path, int sizex, int sizey)
 			mapFile.ignore();
 		}
 	}
+
+    mapFile.ignore();
+
+    for (int y = 0; y < sizey; y++)
+    {
+        for (int x = 0; x < sizex; x++)
+        {
+            mapFile.get(c);
+            if (c == 10 || c == 13 || c ==',') {
+                mapFile.get(c);
+                if (c == 10 || c == 13 || c == ',') {
+                    mapFile.get(c);
+                }
+            }
+            if (c == 49)
+            {
+                auto& enemy(manager.addEntity());
+                enemy.addComponent<TransformComponent>(x * scaledSize, y * scaledSize, 64, 64, 2, 1);
+                enemy.addComponent<SpriteComponent>("imp",true);
+                enemy.addComponent<EnemyComponent>(500);
+                enemy.addComponent<ColliderComponent>("enemy");
+                enemy.addComponent<HealthComponent>(4);
+                enemy.addGroup(Game::groupEnemies);
+            }
+            if(c == 50)
+            {
+                auto& key(manager.addEntity());
+                key.addComponent<TransformComponent>(x * scaledSize, y * scaledSize);
+                key.addComponent<SpriteComponent>("key",false);
+                key.addComponent<ColliderComponent>("item");
+                key.addGroup(Game::groupItems);
+            }
+            mapFile.ignore();
+        }
+    }
 
 	mapFile.close();
 }

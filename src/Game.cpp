@@ -20,7 +20,7 @@ AssetManager* Game::assets = new AssetManager(&manager);
 auto& player(manager.addEntity());
 auto& label(manager.addEntity());
 auto& label1(manager.addEntity());
-auto& enemy(manager.addEntity());
+//auto& enemy(manager.addEntity());
 
 auto& endGameLabel(manager.addEntity());
 
@@ -73,33 +73,34 @@ void Game::init(const char* title, int x, int y, int width, int height, bool ful
 		std::cout<<"Error: SDL_TTF"<<std::endl;
 	}
 
-	assets->AddTexture("terrain", "../res/terrain_ss.png");
+	assets->AddTexture("terrain", "../res/mapTiles32.png");
 	assets->AddTexture("player", "../res/doomGuy-walkSprites.png");
     assets->AddTexture("imp", "../res/imp-walkSprites.png");
-	assets->AddTexture("projectile", "../res/proj.png");
+	assets->AddTexture("projectile", "../res/projectile.png");
 	assets->AddFont("arial", "../res/arial.ttf", 16);
 	assets->AddFont("arial_start", "../res/arial.ttf", 36);
+    assets->AddTexture("key", "../res/key.png");
 	SDL_Color white = {255, 255, 255, 255};
     SDL_Color red = {255,0,0,0};
 
 	
-	map = new Map("terrain",3,32);
-	map->LoadMap("../res/map.map", 25, 20);
-	
+	map = new Map("terrain",2,32);
+	map->LoadMap("../res/mapx.map", 25, 20);
+
 	//player.addComponent<TransformComponent>(4);
-    player.addComponent<TransformComponent>(400,600,86,64,1);
+    player.addComponent<TransformComponent>(135,1100,86,64,1);
 	player.addComponent<SpriteComponent>("player",true);
 	player.addComponent<KeyboardController>();
 	player.addComponent<ColliderComponent>("player");
     player.addComponent<HealthComponent>(1);
 	player.addGroup(groupPlayer);
 
-    enemy.addComponent<TransformComponent>(450, 650, 64, 64, 2, 1);
-    enemy.addComponent<SpriteComponent>("imp",true);
-    enemy.addComponent<EnemyComponent>(200);
-    enemy.addComponent<ColliderComponent>("enemy");
-    enemy.addComponent<HealthComponent>(1);
-    enemy.addGroup(groupEnemies);
+//    enemy.addComponent<TransformComponent>(450, 650, 64, 64, 2, 1);
+//    enemy.addComponent<SpriteComponent>("imp",true);
+//    enemy.addComponent<EnemyComponent>(200);
+//    enemy.addComponent<ColliderComponent>("enemy");
+//    enemy.addComponent<HealthComponent>(1);
+//    enemy.addGroup(groupEnemies);
 
 	label.addComponent<UILabel>(10, 10, "Test String", "arial", white);
 	label1.addComponent<UILabel>(150, 300, "Press any key to start the game", "arial_start", red);
@@ -114,6 +115,8 @@ auto& players(manager.getGroup(Game::groupPlayer));
 auto& colliders(manager.getGroup(Game::groupColliders));
 auto& enemies(manager.getGroup(Game::groupEnemies));
 auto& projectiles(manager.getGroup(Game::groupProjectiles));
+auto& items(manager.getGroup(Game::groupItems));
+
 
 void Game::handleEvents()
 {
@@ -172,21 +175,38 @@ void Game::update() {
 				{
 					player.getComponent<TransformComponent>().position = playerPos;
 				}
+                for(auto& e: enemies)
+                {
+                    if(Collision::AABB(cCol, e->getComponent<ColliderComponent>().collider))
+                    {
+                        //e->getComponent<TransformComponent>().position -= e->getComponent<TransformComponent>().velocity;
+                    }
+                }
 			}
 
             for(auto e: enemies)
             {
                 e->getComponent<EnemyComponent>().rangeCheck(playerPos);
+                if (Collision::AABB(player.getComponent<ColliderComponent>().collider, e->getComponent<ColliderComponent>().collider))
+                {
+                    player.getComponent<HealthComponent>().hit();
+//                    if(player.getComponent<HealthComponent>().getHealth() <=0) {
+//                        player.getComponent<HealthComponent>().hasDied = true;
+//                    }
+                    //e->getComponent<TransformComponent>().position -= e->getComponent<TransformComponent>().velocity;
+                }
             }
+
+
 
 			for (auto& p : projectiles)
 			{
-				if (Collision::AABB(player.getComponent<ColliderComponent>().collider, p->getComponent<ColliderComponent>().collider))
-				{
-					//std::cout << Collision::x << std::endl;
-					p->destroy();
-                    player.getComponent<HealthComponent>().hit();
-				}
+//				if (Collision::AABB(player.getComponent<ColliderComponent>().collider, p->getComponent<ColliderComponent>().collider))
+//				{
+//					//std::cout << Collision::x << std::endl;
+//					p->destroy();
+//                    player.getComponent<HealthComponent>().hit();
+//				}
                 for(auto e: enemies)
                 {
                     if (Collision::AABB(e->getComponent<ColliderComponent>(),
@@ -256,6 +276,10 @@ void Game::render() {
             {
                 p->draw();
             }
+            for (auto& p : items)
+            {
+                p->draw();
+            }
 
 			label.draw();
 			
@@ -273,12 +297,12 @@ void Game::clean() {
 
 void Game::start_menu()
 {
-    if(player.getComponent<HealthComponent>().hasDied || !player.getComponent<HealthComponent>().getHealth())
+    if(player.getComponent<HealthComponent>().hasDied || player.getComponent<HealthComponent>().getHealth()<=0)
     {
         endGameLabel.draw();
         player.getComponent<HealthComponent>().setHealth(1);
-        //assets->CreateProjectile(Vector2D(800, 600), Vector2D(-1,0),500, 1, "projectile");
         player.getComponent<HealthComponent>().hasDied = true;
+        player.getComponent<TransformComponent>().position = Vector2D{135,1100};
     }
 
     // endGameLabel.draw();
