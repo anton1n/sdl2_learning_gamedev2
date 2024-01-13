@@ -341,4 +341,8 @@ CMakeFiles/sdl2_learning_gamedev2.dir/src/Game.cpp.o: \
  /home/tony/Documents/cppProjects/game/sdl2_learning_gamedev2/include/HealthComponent.hpp \
  /home/tony/Documents/cppProjects/game/sdl2_learning_gamedev2/include/Collision.hpp \
  /home/tony/Documents/cppProjects/game/sdl2_learning_gamedev2/include/InterractComponent.hpp \
- /usr/include/c++/11/sstream /usr/include/c++/11/bits/sstream.tcc
+ /usr/include/c++/11/sstream /usr/include/c++/11/bits/sstream.tcc \
+ /usr/include/c++/11/fstream /usr/include/c++/11/bits/codecvt.h \
+ /usr/include/x86_64-linux-gnu/c++/11/bits/basic_file.h \
+ /usr/include/x86_64-linux-gnu/c++/11/bits/c++io.h \
+ /usr/include/c++/11/bits/fstream.tcc

@@ -5,6 +5,7 @@
 #include "Collision.hpp"
 #include <sstream>
 #include <vector>
+#include <fstream>
 
 SDL_Renderer* Game::renderer = nullptr;
 Map* map;
@@ -20,6 +21,7 @@ AssetManager* Game::assets = new AssetManager(&manager);
 auto& player(manager.addEntity());
 auto& label(manager.addEntity());
 auto& label1(manager.addEntity());
+auto& exitEntity(manager.addEntity());
 //auto& enemy(manager.addEntity());
 
 auto& endGameLabel(manager.addEntity());
@@ -30,6 +32,7 @@ GameState Game::gameState;
 
 std::vector<Vector2D>lastEnemyPosition;
 bool gotItem=false;
+int level = 1;
 
 Game::Game() {
 
@@ -86,6 +89,7 @@ void Game::init(const char* title, int x, int y, int width, int height, bool ful
 	
 	map = new Map("terrain",2,32);
 	map->LoadMap("../res/testingMap.map", 25, 20);
+    //map->LoadMap(mapLevel, 25, 20);
 
 	//player.addComponent<TransformComponent>(4);
     player.addComponent<TransformComponent>(135,1100,86,64,1);
@@ -96,9 +100,11 @@ void Game::init(const char* title, int x, int y, int width, int height, bool ful
 	player.addGroup(groupPlayer);
 
 	label.addComponent<UILabel>(10, 10, "Test String", "arial", white);
-	label1.addComponent<UILabel>(150, 300, "Press any key to start the game", "arial_start", red);
+	label1.addComponent<UILabel>(25, 300, "Press any key to start the game s=save l=load", "arial_start", red);
     endGameLabel.addComponent<UILabel>(150, 250, "You died!", "arial_start", red);
 
+    exitEntity.addComponent<TransformComponent>(1092,1175);
+    exitEntity.addComponent<ColliderComponent>("exit");
 
     gameState = START_MENU;
 }
@@ -111,6 +117,8 @@ auto& projectiles(manager.getGroup(Game::groupProjectiles));
 auto& items(manager.getGroup(Game::groupItems));
 
 
+std::ofstream saveFile;
+
 void Game::handleEvents()
 {
 
@@ -120,6 +128,14 @@ void Game::handleEvents()
 	{
 		isRunning = false;
 	}
+    if(gameState == START_MENU && event.key.keysym.sym == SDLK_s)
+    {
+        save();
+    }
+    if(gameState == START_MENU && event.key.keysym.sym == SDLK_l)
+    {
+        load();
+    }
 	else
 	{
 		switch (event.type)
@@ -137,8 +153,6 @@ void Game::handleEvents()
 	}
 }
 
-	
-
 void Game::update() {
 
 	switch(gameState)
@@ -155,6 +169,11 @@ void Game::update() {
 			Vector2D playerPos = player.getComponent<TransformComponent>().position;
 
             lastEnemyPosition.clear();
+
+            if(Collision::AABB(playerCol, exitEntity.getComponent<ColliderComponent>().collider))
+            {
+                nextLevel();
+            }
 
             for(auto& e: enemies)
             {
@@ -306,4 +325,82 @@ void Game::start_menu()
 
     // endGameLabel.draw();
     label1.draw();
+}
+
+void Game::nextLevel()
+{
+    gotItem = false;
+
+    std::string mapPath ="../res/map0.map";
+    mapPath[10] += level;
+
+    level++;
+
+    player.getComponent<TransformComponent>().position = Vector2D{135,1100};
+    delete map;
+    map = new Map("terrain",2,32);
+
+    map->LoadMap(mapPath, 25, 20);
+}
+
+void Game::save()
+{
+    saveFile.open("../saveFile.save");
+
+    if(!saveFile.is_open())
+    {
+        std::cout<<"Error opening save file!";
+        return;
+    }
+    std::cout<<"Saving game..."<<std::endl;
+
+    std::stringstream ss;
+    ss << player.getComponent<TransformComponent>().position<<" "<<gotItem<<" "<<level;
+
+    saveFile<<ss.str();
+
+    saveFile.close();
+}
+
+void Game::load()
+{
+    std::fstream saveFile;
+
+    saveFile.open("../saveFile.save");
+
+    if(!saveFile.is_open())
+    {
+        std::cout<<"Error opening save file!";
+        return;
+    }
+
+    int data;
+    saveFile.ignore();
+
+    saveFile>>data;
+    player.getComponent<TransformComponent>().position.x = data;
+
+    saveFile.ignore();
+
+    saveFile>>data;
+    player.getComponent<TransformComponent>().position.y = data;
+
+    saveFile.ignore();
+    saveFile>>data;
+    gotItem = data;
+
+    saveFile.ignore();
+    saveFile>>data;
+    level = data;
+
+    saveFile.close();
+
+    if(map)
+        delete map;
+    map = new Map("terrain",2,32);
+
+    std::string mapPath ="../res/map0.map";
+    mapPath[10] += level;
+
+    map->LoadMap(mapPath, 25, 20);
 }

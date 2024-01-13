@@ -31,6 +31,15 @@ public:
 	bool running() { return isRunning; }
 	void start_menu();
 
+
+    /////////////
+ ////*omfg omfg*////
+    ////////////
+
+    void nextLevel();
+    void save();
+    void load();
+
 	static SDL_Renderer* renderer;
 	static SDL_Event event;
 	//static std::vector<ColliderComponent*> colliders;

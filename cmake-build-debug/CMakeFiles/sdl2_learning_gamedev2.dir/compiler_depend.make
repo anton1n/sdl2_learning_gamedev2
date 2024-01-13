@@ -1480,7 +1480,12 @@ CMakeFiles/sdl2_learning_gamedev2.dir/src/Game.cpp.o: ../src/Game.cpp \
   ../include/Collision.hpp \
   ../include/InterractComponent.hpp \
   /usr/include/c++/11/sstream \
-  /usr/include/c++/11/bits/sstream.tcc
+  /usr/include/c++/11/bits/sstream.tcc \
+  /usr/include/c++/11/fstream \
+  /usr/include/c++/11/bits/codecvt.h \
+  /usr/include/x86_64-linux-gnu/c++/11/bits/basic_file.h \
+  /usr/include/x86_64-linux-gnu/c++/11/bits/c++io.h \
+  /usr/include/c++/11/bits/fstream.tcc
 
 CMakeFiles/sdl2_learning_gamedev2.dir/src/GameObject.cpp.o: ../src/GameObject.cpp \
   /usr/include/stdc-predef.h \
@@ -3303,6 +3308,12 @@ CMakeFiles/sdl2_learning_gamedev2.dir/src/main.cpp.o: ../src/main.cpp \
 
 ../src/main.cpp:
 
+../src/Map.cpp:
+
+../include/GameObject.hpp:
+
+../src/GameObject.cpp:
+
 /usr/include/c++/11/bits/fstream.tcc:
 
 /usr/include/x86_64-linux-gnu/c++/11/bits/c++io.h:
@@ -3310,12 +3321,6 @@ CMakeFiles/sdl2_learning_gamedev2.dir/src/main.cpp.o: ../src/main.cpp \
 /usr/include/x86_64-linux-gnu/c++/11/bits/basic_file.h:
 
 /usr/include/c++/11/fstream:
-
-../src/Map.cpp:
-
-../include/GameObject.hpp:
-
-../src/GameObject.cpp:
 
 /usr/include/c++/11/sstream:
 

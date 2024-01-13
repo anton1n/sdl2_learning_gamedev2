@@ -13,7 +13,7 @@ int main(int argc, char** argv)
 	Game* game = nullptr;
 	game = new Game();
 
-	game->init("title", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, width, height, false);
+	game->init("2d Doom", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, width, height, false);
 
 	while (game->running())
 	{

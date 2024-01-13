@@ -23,6 +23,12 @@ void Map::LoadMap(std::string path, int sizex, int sizey)
 	std::fstream mapFile;
 	mapFile.open(path);
 
+    if(!mapFile.is_open())
+    {
+        std::cout<<"Error opening map file!";
+        return;
+    }
+
 	int srcX, srcY;
 
 	for (int y = 0; y < sizey; y++)
