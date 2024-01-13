@@ -2,6 +2,13 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/../../game (copy 2)" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/.." vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../../sdl2_learning_gamedev1/BirchEngine" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../../sdl2_learning_gamedev1/sdl2_learning_gamedev" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../../sdl2_learning_gamedev1/sdl2_learning_gamedev (3rd copy)" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../../sdl2_learning_gamedev1/sdl2_learning_gamedev (another copy)" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../../sdl2_learning_gamedev1/sdl2_learning_gamedev (copy)" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../../sdl2_learning_gamedev1/sdl2_learning_gamedev2 (copy)" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../../sdl2_learning_gamedev2" vcs="Git" />
   </component>
 </project>

@@ -13,7 +13,7 @@ private:
 	TransformComponent* transform;
 	SDL_Texture* texture;
 	SDL_Rect srcRect, destRect;
-
+    std::string texID;
 	bool animated = false;
 	int frames = 0;
 	int speed = 100;
@@ -29,10 +29,12 @@ public:
 	SpriteComponent() = default;
 	SpriteComponent(std::string id)
 	{
+        texID = id;
 		setTex(id);
 	}
 	SpriteComponent(std::string id, bool isAnimated)
 	{
+        texID = id;
 		animated = isAnimated;
 
         Animation idle = Animation(0,2,200);
@@ -52,6 +54,10 @@ public:
 	void setTex(std::string id) {
 		texture = Game::assets->GetTexture(id); //
 	}
+    std::string getTex()
+    {
+        return texID;
+    }
 
 	~SpriteComponent()
 	{

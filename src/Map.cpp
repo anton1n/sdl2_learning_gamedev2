@@ -108,6 +108,17 @@ void Map::LoadMap(std::string path, int sizex, int sizey)
                 key.addComponent<SpriteComponent>("key",false);
                 key.addComponent<ColliderComponent>("item");
                 key.addGroup(Game::groupItems);
+                key.addComponent<InterractComponent>();
+            }
+            if(c == 51)
+            {
+                auto& door(manager.addEntity());
+                door.addComponent<TransformComponent>(x * scaledSize, y * scaledSize, 32, 32, 2, 0);
+                door.addComponent<SpriteComponent>("door",false);
+                //AddTile(2*tileSize, 2*tileSize, x*scaledSize, y*scaledSize);
+                door.addComponent<ColliderComponent>("door");
+                door.addGroup(Game::groupItems);
+                door.addComponent<InterractComponent>();
             }
             mapFile.ignore();
         }

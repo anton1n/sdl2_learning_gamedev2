@@ -4,7 +4,7 @@
 #include "Vector2D.hpp"
 #include "Collision.hpp"
 #include <sstream>
-
+#include <vector>
 
 SDL_Renderer* Game::renderer = nullptr;
 Map* map;
@@ -26,11 +26,10 @@ auto& endGameLabel(manager.addEntity());
 
 bool Game::isRunning = false;
 
-
-
 GameState Game::gameState;
 
-//auto& enemies(manager.getGroup(groupEnemies));
+std::vector<Vector2D>lastEnemyPosition;
+bool gotItem=false;
 
 Game::Game() {
 
@@ -80,12 +79,13 @@ void Game::init(const char* title, int x, int y, int width, int height, bool ful
 	assets->AddFont("arial", "../res/arial.ttf", 16);
 	assets->AddFont("arial_start", "../res/arial.ttf", 36);
     assets->AddTexture("key", "../res/key.png");
+    assets->AddTexture("door", "../res/door.png");
 	SDL_Color white = {255, 255, 255, 255};
     SDL_Color red = {255,0,0,0};
 
 	
 	map = new Map("terrain",2,32);
-	map->LoadMap("../res/mapx.map", 25, 20);
+	map->LoadMap("../res/testingMap.map", 25, 20);
 
 	//player.addComponent<TransformComponent>(4);
     player.addComponent<TransformComponent>(135,1100,86,64,1);
@@ -94,13 +94,6 @@ void Game::init(const char* title, int x, int y, int width, int height, bool ful
 	player.addComponent<ColliderComponent>("player");
     player.addComponent<HealthComponent>(1);
 	player.addGroup(groupPlayer);
-
-//    enemy.addComponent<TransformComponent>(450, 650, 64, 64, 2, 1);
-//    enemy.addComponent<SpriteComponent>("imp",true);
-//    enemy.addComponent<EnemyComponent>(200);
-//    enemy.addComponent<ColliderComponent>("enemy");
-//    enemy.addComponent<HealthComponent>(1);
-//    enemy.addGroup(groupEnemies);
 
 	label.addComponent<UILabel>(10, 10, "Test String", "arial", white);
 	label1.addComponent<UILabel>(150, 300, "Press any key to start the game", "arial_start", red);
@@ -161,12 +154,28 @@ void Game::update() {
 			SDL_Rect playerCol = player.getComponent<ColliderComponent>().collider;
 			Vector2D playerPos = player.getComponent<TransformComponent>().position;
 
+            lastEnemyPosition.clear();
+
+            for(auto& e: enemies)
+            {
+                lastEnemyPosition.push_back(e->getComponent<TransformComponent>().position);
+            }
+
 			std::stringstream ss;
 			ss << "Player position: "<< playerPos;
 			label.getComponent<UILabel>().SetLabelText(ss.str(), "arial");
 
 			manager.refresh();
 			manager.update();
+
+            for(auto e: enemies)
+            {
+                e->getComponent<EnemyComponent>().rangeCheck(playerPos);
+                if (Collision::AABB(player.getComponent<ColliderComponent>().collider, e->getComponent<ColliderComponent>().collider))
+                {
+                    player.getComponent<HealthComponent>().hit();
+                }
+            }
 
 			for(auto& c: colliders)
 			{
@@ -175,38 +184,21 @@ void Game::update() {
 				{
 					player.getComponent<TransformComponent>().position = playerPos;
 				}
+                unsigned int enemyIndex=0;
                 for(auto& e: enemies)
                 {
                     if(Collision::AABB(cCol, e->getComponent<ColliderComponent>().collider))
                     {
-                        //e->getComponent<TransformComponent>().position -= e->getComponent<TransformComponent>().velocity;
+                        e->getComponent<TransformComponent>().position = lastEnemyPosition[enemyIndex];
+                        //std::cout<<"Position on col: "<<e->getComponent<TransformComponent>().position
+                        //<<" Last pos: "<<lastEnemyPosition[enemyIndex]<<std::endl;
                     }
+                    enemyIndex++;
                 }
 			}
 
-            for(auto e: enemies)
-            {
-                e->getComponent<EnemyComponent>().rangeCheck(playerPos);
-                if (Collision::AABB(player.getComponent<ColliderComponent>().collider, e->getComponent<ColliderComponent>().collider))
-                {
-                    player.getComponent<HealthComponent>().hit();
-//                    if(player.getComponent<HealthComponent>().getHealth() <=0) {
-//                        player.getComponent<HealthComponent>().hasDied = true;
-//                    }
-                    //e->getComponent<TransformComponent>().position -= e->getComponent<TransformComponent>().velocity;
-                }
-            }
-
-
-
 			for (auto& p : projectiles)
 			{
-//				if (Collision::AABB(player.getComponent<ColliderComponent>().collider, p->getComponent<ColliderComponent>().collider))
-//				{
-//					//std::cout << Collision::x << std::endl;
-//					p->destroy();
-//                    player.getComponent<HealthComponent>().hit();
-//				}
                 for(auto e: enemies)
                 {
                     if (Collision::AABB(e->getComponent<ColliderComponent>(),
@@ -217,8 +209,15 @@ void Game::update() {
                 }
 			}
 
-
-
+            for(auto&item:items)
+            {
+                if (Collision::AABB(playerCol,
+                                    item->getComponent<ColliderComponent>().collider)) {
+                    item->getComponent<InterractComponent>().access(gotItem);
+                    player.getComponent<TransformComponent>().position = playerPos;
+                    std::cout<<"omg"<<std::endl;
+                }
+            }
 
 			camera.x = player.getComponent<TransformComponent>().position.x - 400;
 			camera.y = player.getComponent<TransformComponent>().position.y - 320;

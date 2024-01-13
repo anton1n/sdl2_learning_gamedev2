@@ -10,3 +10,4 @@
 #include "UILabel.hpp"
 #include "EnemyComponent.hpp"
 #include "HealthComponent.hpp"
+#include "InterractComponent.hpp"
