@@ -35,7 +35,7 @@ Make sure you have the following dependencies installed:
 2. Navigate to the project directory:
 
     ```bash
-    cd doom-2d
+    cd sdl2_learning_gamedev2
     ```
 
 3. Create Build Directory:
