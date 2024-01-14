@@ -22,6 +22,7 @@ auto& player(manager.addEntity());
 auto& label(manager.addEntity());
 auto& label1(manager.addEntity());
 auto& exitEntity(manager.addEntity());
+auto& finishedGame(manager.addEntity());
 //auto& enemy(manager.addEntity());
 
 auto& endGameLabel(manager.addEntity());
@@ -69,7 +70,6 @@ void Game::init(const char* title, int x, int y, int width, int height, bool ful
 		isRunning = false;
 	}
 
-
 	if(TTF_Init() == -1)
 	{
 		std::cout<<"Error: SDL_TTF"<<std::endl;
@@ -85,10 +85,10 @@ void Game::init(const char* title, int x, int y, int width, int height, bool ful
     assets->AddTexture("door", "../res/door.png");
 	SDL_Color white = {255, 255, 255, 255};
     SDL_Color red = {255,0,0,0};
+    SDL_Color blue = {0,0,255,0};
 
-	
 	map = new Map("terrain",2,32);
-	map->LoadMap("../res/testingMap.map", 25, 20);
+	map->LoadMap("../res/map0.map", 25, 20);
     //map->LoadMap(mapLevel, 25, 20);
 
 	//player.addComponent<TransformComponent>(4);
@@ -102,9 +102,11 @@ void Game::init(const char* title, int x, int y, int width, int height, bool ful
 	label.addComponent<UILabel>(10, 10, "Test String", "arial", white);
 	label1.addComponent<UILabel>(25, 300, "Press any key to start the game s=save l=load", "arial_start", red);
     endGameLabel.addComponent<UILabel>(150, 250, "You died!", "arial_start", red);
+    finishedGame.addComponent<UILabel>(250,250,"Game finished!","arial_start" , blue);
 
     exitEntity.addComponent<TransformComponent>(1092,1175);
     exitEntity.addComponent<ColliderComponent>("exit");
+
 
     gameState = START_MENU;
 }
@@ -115,7 +117,6 @@ auto& colliders(manager.getGroup(Game::groupColliders));
 auto& enemies(manager.getGroup(Game::groupEnemies));
 auto& projectiles(manager.getGroup(Game::groupProjectiles));
 auto& items(manager.getGroup(Game::groupItems));
-
 
 std::ofstream saveFile;
 
@@ -164,6 +165,11 @@ void Game::update() {
 			break;
 
 		case PLAYING:
+            if(level>2)
+            {
+                gameState = START_MENU;
+                return;
+            }
             player.getComponent<HealthComponent>().hasDied = false;
 			SDL_Rect playerCol = player.getComponent<ColliderComponent>().collider;
 			Vector2D playerPos = player.getComponent<TransformComponent>().position;
@@ -258,11 +264,8 @@ void Game::update() {
 				camera.y = camera.h;
 			}
 			break;
-
 	}
-	
 }
-
 
 void Game::render() {
 	SDL_RenderClear(renderer);
@@ -315,6 +318,11 @@ void Game::clean() {
 
 void Game::start_menu()
 {
+    if(level>2)
+    {
+        finishedGame.draw();
+    }
+
     if(player.getComponent<HealthComponent>().hasDied || player.getComponent<HealthComponent>().getHealth()<=0)
     {
         endGameLabel.draw();
@@ -337,6 +345,12 @@ void Game::nextLevel()
     level++;
 
     player.getComponent<TransformComponent>().position = Vector2D{135,1100};
+
+    for(auto& c: colliders)
+    {
+        c->destroy();
+    }
+
     delete map;
     map = new Map("terrain",2,32);
 
@@ -396,7 +410,13 @@ void Game::load()
     saveFile.close();
 
     if(map)
+    {
         delete map;
+        for(auto& c: colliders)
+        {
+            c->destroy();
+        }
+    }
     map = new Map("terrain",2,32);
 
     std::string mapPath ="../res/map0.map";
