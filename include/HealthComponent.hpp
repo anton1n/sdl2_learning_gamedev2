@@ -4,6 +4,8 @@
 #include "Collision.hpp"
 #include "Game.hpp"
 
+extern Manager manager;
+
 class HealthComponent: public Component
 {
 private:
@@ -24,8 +26,14 @@ public:
     {
         if(healthPoints <= 0)
         {
-            if(entity->hasComponent<EnemyComponent>())
+            if(entity->hasComponent<EnemyComponent>()) {
+                Vector2D pos = entity->getComponent<TransformComponent>().position;
                 entity->destroy();
+                auto& dead(manager.addEntity());
+                dead.addComponent<TransformComponent>(pos.x, pos.y, 32, 32, 3, 0);
+                dead.addComponent<SpriteComponent>("dead",false);
+                dead.addGroup(Game::groupOverlays);
+            }
             else{
                 Game::gameState = START_MENU;
             }

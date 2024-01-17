@@ -95,7 +95,6 @@ public:
 		return *c;
 
 	}
-	//gameobject.getCommponent<PositionComponent>().setXpos(25);
 	template<typename T> T& getComponent() const
 	{
 		auto ptr(componentArray[getComponentTypeID<T>()]);
@@ -103,6 +102,23 @@ public:
 		
 
 	}
+
+    template <typename T>
+    void removeComponent()
+    {
+        if (hasComponent<T>())
+        {
+            auto& component = getComponent<T>();
+            componentBitSet[getComponentTypeID<T>()] = false;
+            components.erase(std::remove_if(components.begin(), components.end(),
+                                            [](const std::unique_ptr<Component>& ptr)
+                                            {
+                                                return dynamic_cast<T*>(ptr.get()) != nullptr;
+                                            }),
+                             components.end());
+            componentArray[getComponentTypeID<T>()] = nullptr;
+        }
+    }
 };
 
 class Manager {

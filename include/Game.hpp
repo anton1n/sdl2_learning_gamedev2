@@ -56,7 +56,8 @@ public:
 		groupEnemies,
 		groupColliders,
 		groupProjectiles,
-        groupItems
+        groupItems,
+        groupOverlays
 	};
 
 

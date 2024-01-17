@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="sdl2_learning_gamedev2"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/home/tony/Documents/cppProjects/game/sdl2_learning_gamedev2/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -f &quot;/home/tony/Documents/cppProjects/game/sdl2_learning_gamedev2/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/gmake -f &quot;/home/tony/Documents/cppProjects/game/sdl2_learning_gamedev2/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -f &quot;/home/tony/Documents/cppProjects/game/sdl2_learning_gamedev2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -f &quot;/home/tony/Documents/cppProjects/game/sdl2_learning_gamedev2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="sdl2_learning_gamedev2">
+				<Option output="/home/tony/Documents/cppProjects/game/sdl2_learning_gamedev2/cmake-build-debug/sdl2_learning_gamedev2" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/tony/Documents/cppProjects/game/sdl2_learning_gamedev2/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/SDL2"/>
+					<Add directory="/home/tony/Documents/cppProjects/game/sdl2_learning_gamedev2/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -f &quot;/home/tony/Documents/cppProjects/game/sdl2_learning_gamedev2/cmake-build-debug/Makefile&quot;  VERBOSE=1 sdl2_learning_gamedev2"/>
+					<CompileFile command="/usr/bin/gmake -f &quot;/home/tony/Documents/cppProjects/game/sdl2_learning_gamedev2/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -f &quot;/home/tony/Documents/cppProjects/game/sdl2_learning_gamedev2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -f &quot;/home/tony/Documents/cppProjects/game/sdl2_learning_gamedev2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="sdl2_learning_gamedev2/fast">
+				<Option output="/home/tony/Documents/cppProjects/game/sdl2_learning_gamedev2/cmake-build-debug/sdl2_learning_gamedev2" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/tony/Documents/cppProjects/game/sdl2_learning_gamedev2/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/SDL2"/>
+					<Add directory="/home/tony/Documents/cppProjects/game/sdl2_learning_gamedev2/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -f &quot;/home/tony/Documents/cppProjects/game/sdl2_learning_gamedev2/cmake-build-debug/Makefile&quot;  VERBOSE=1 sdl2_learning_gamedev2/fast"/>
+					<CompileFile command="/usr/bin/gmake -f &quot;/home/tony/Documents/cppProjects/game/sdl2_learning_gamedev2/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -f &quot;/home/tony/Documents/cppProjects/game/sdl2_learning_gamedev2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -f &quot;/home/tony/Documents/cppProjects/game/sdl2_learning_gamedev2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="test">
+				<Option working_dir="/home/tony/Documents/cppProjects/game/sdl2_learning_gamedev2/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -f &quot;/home/tony/Documents/cppProjects/game/sdl2_learning_gamedev2/cmake-build-debug/Makefile&quot;  VERBOSE=1 test"/>
+					<CompileFile command="/usr/bin/gmake -f &quot;/home/tony/Documents/cppProjects/game/sdl2_learning_gamedev2/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -f &quot;/home/tony/Documents/cppProjects/game/sdl2_learning_gamedev2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -f &quot;/home/tony/Documents/cppProjects/game/sdl2_learning_gamedev2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/home/tony/Documents/cppProjects/game/sdl2_learning_gamedev2/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -f &quot;/home/tony/Documents/cppProjects/game/sdl2_learning_gamedev2/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/gmake -f &quot;/home/tony/Documents/cppProjects/game/sdl2_learning_gamedev2/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -f &quot;/home/tony/Documents/cppProjects/game/sdl2_learning_gamedev2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -f &quot;/home/tony/Documents/cppProjects/game/sdl2_learning_gamedev2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/home/tony/Documents/cppProjects/game/sdl2_learning_gamedev2/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -f &quot;/home/tony/Documents/cppProjects/game/sdl2_learning_gamedev2/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/gmake -f &quot;/home/tony/Documents/cppProjects/game/sdl2_learning_gamedev2/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -f &quot;/home/tony/Documents/cppProjects/game/sdl2_learning_gamedev2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -f &quot;/home/tony/Documents/cppProjects/game/sdl2_learning_gamedev2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/home/tony/Documents/cppProjects/game/sdl2_learning_gamedev2/src/AssetManager.cpp">
+			<Option target="sdl2_learning_gamedev2"/>
+		</Unit>
+		<Unit filename="/home/tony/Documents/cppProjects/game/sdl2_learning_gamedev2/src/Collision.cpp">
+			<Option target="sdl2_learning_gamedev2"/>
+		</Unit>
+		<Unit filename="/home/tony/Documents/cppProjects/game/sdl2_learning_gamedev2/src/ECS.cpp">
+			<Option target="sdl2_learning_gamedev2"/>
+		</Unit>
+		<Unit filename="/home/tony/Documents/cppProjects/game/sdl2_learning_gamedev2/src/Game.cpp">
+			<Option target="sdl2_learning_gamedev2"/>
+		</Unit>
+		<Unit filename="/home/tony/Documents/cppProjects/game/sdl2_learning_gamedev2/src/GameObject.cpp">
+			<Option target="sdl2_learning_gamedev2"/>
+		</Unit>
+		<Unit filename="/home/tony/Documents/cppProjects/game/sdl2_learning_gamedev2/src/Map.cpp">
+			<Option target="sdl2_learning_gamedev2"/>
+		</Unit>
+		<Unit filename="/home/tony/Documents/cppProjects/game/sdl2_learning_gamedev2/src/TextureManager.cpp">
+			<Option target="sdl2_learning_gamedev2"/>
+		</Unit>
+		<Unit filename="/home/tony/Documents/cppProjects/game/sdl2_learning_gamedev2/src/Vector2D.cpp">
+			<Option target="sdl2_learning_gamedev2"/>
+		</Unit>
+		<Unit filename="/home/tony/Documents/cppProjects/game/sdl2_learning_gamedev2/src/main.cpp">
+			<Option target="sdl2_learning_gamedev2"/>
+		</Unit>
+		<Unit filename="/home/tony/Documents/cppProjects/game/sdl2_learning_gamedev2/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

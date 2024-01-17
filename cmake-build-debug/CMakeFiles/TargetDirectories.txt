@@ -1,0 +1,4 @@
+/home/tony/Documents/cppProjects/game/sdl2_learning_gamedev2/cmake-build-debug/CMakeFiles/sdl2_learning_gamedev2.dir
+/home/tony/Documents/cppProjects/game/sdl2_learning_gamedev2/cmake-build-debug/CMakeFiles/test.dir
+/home/tony/Documents/cppProjects/game/sdl2_learning_gamedev2/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/tony/Documents/cppProjects/game/sdl2_learning_gamedev2/cmake-build-debug/CMakeFiles/rebuild_cache.dir

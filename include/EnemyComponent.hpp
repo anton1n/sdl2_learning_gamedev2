@@ -85,4 +85,9 @@ public:
                 sprite->spriteFlip = SDL_FLIP_NONE;
         }
     }
+
+    void setRadius(int r)
+    {
+        detectionRadius = r;
+    }
 };

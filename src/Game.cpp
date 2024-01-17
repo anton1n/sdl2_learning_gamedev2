@@ -83,6 +83,8 @@ void Game::init(const char* title, int x, int y, int width, int height, bool ful
 	assets->AddFont("arial_start", "../res/arial.ttf", 36);
     assets->AddTexture("key", "../res/key.png");
     assets->AddTexture("door", "../res/door.png");
+    assets->AddTexture("dead", "../res/dead.png");
+
 	SDL_Color white = {255, 255, 255, 255};
     SDL_Color red = {255,0,0,0};
     SDL_Color blue = {0,0,255,0};
@@ -117,6 +119,7 @@ auto& colliders(manager.getGroup(Game::groupColliders));
 auto& enemies(manager.getGroup(Game::groupEnemies));
 auto& projectiles(manager.getGroup(Game::groupProjectiles));
 auto& items(manager.getGroup(Game::groupItems));
+auto& overlay(manager.getGroup(Game::groupOverlays));
 
 std::ofstream saveFile;
 
@@ -129,11 +132,11 @@ void Game::handleEvents()
 	{
 		isRunning = false;
 	}
-    if(gameState == START_MENU && event.key.keysym.sym == SDLK_s)
+    else if(gameState == START_MENU && event.key.keysym.sym == SDLK_s)
     {
         save();
     }
-    if(gameState == START_MENU && event.key.keysym.sym == SDLK_l)
+    else if(gameState == START_MENU && event.key.keysym.sym == SDLK_l)
     {
         load();
     }
@@ -165,7 +168,7 @@ void Game::update() {
 			break;
 
 		case PLAYING:
-            if(level>2)
+            if(level>3)
             {
                 gameState = START_MENU;
                 return;
@@ -185,6 +188,7 @@ void Game::update() {
             {
                 lastEnemyPosition.push_back(e->getComponent<TransformComponent>().position);
             }
+
 
 			std::stringstream ss;
 			ss << "Player position: "<< playerPos;
@@ -229,6 +233,7 @@ void Game::update() {
                     if (Collision::AABB(e->getComponent<ColliderComponent>(),
                                         p->getComponent<ColliderComponent>())) {
                         e->getComponent<HealthComponent>().hit();
+                        //e->removeComponent<EnemyComponent>();
                         p->destroy();
                     }
                 }
@@ -281,6 +286,10 @@ void Game::render() {
 			{
 				t->draw();
 			}
+            for(auto& t: overlay)
+            {
+                t->draw();
+            }
 			for(auto& c: colliders)
 			{
 				c->draw();
@@ -318,7 +327,7 @@ void Game::clean() {
 
 void Game::start_menu()
 {
-    if(level>2)
+    if(level>3)
     {
         finishedGame.draw();
     }
@@ -340,13 +349,19 @@ void Game::nextLevel()
     gotItem = false;
 
     std::string mapPath ="../res/map0.map";
-    mapPath[10] += level;
+    mapPath[10] = '0' + level;
+    std::cout<<mapPath;
 
     level++;
 
     player.getComponent<TransformComponent>().position = Vector2D{135,1100};
 
     for(auto& c: colliders)
+    {
+        c->destroy();
+    }
+
+    for(auto& c: overlay)
     {
         c->destroy();
     }
@@ -420,7 +435,7 @@ void Game::load()
     map = new Map("terrain",2,32);
 
     std::string mapPath ="../res/map0.map";
-    mapPath[10] += level;
+    mapPath[10] = '0' + level;
 
     map->LoadMap(mapPath, 25, 20);
 }
