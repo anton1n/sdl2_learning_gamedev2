@@ -7,6 +7,8 @@
 #include <vector>
 #include <fstream>
 
+constexpr int w{ 800 }, h{ 640 };
+
 SDL_Renderer* Game::renderer = nullptr;
 Map* map;
 
@@ -14,7 +16,8 @@ Manager manager;
 
 SDL_Event Game::event;
 
-SDL_Rect Game::camera = {0,0,800,640};
+//SDL_Rect Game::camera = {0,0,800,640};
+SDL_Rect Game::camera = {0,0,w,h};
 
 AssetManager* Game::assets = new AssetManager(&manager);
 
@@ -64,6 +67,7 @@ void Game::init(const char* title, int x, int y, int width, int height, bool ful
 			SDL_SetRenderDrawColor(renderer, 0xFF, 0xFF, 0xFF, 0xFF);
 			std::cout << "Renderer created! " << std::endl;
 		}
+
 		isRunning = true;
 	}
 	else {
@@ -249,8 +253,11 @@ void Game::update() {
                 }
             }
 
-			camera.x = player.getComponent<TransformComponent>().position.x - 400;
-			camera.y = player.getComponent<TransformComponent>().position.y - 320;
+			//camera.x = player.getComponent<TransformComponent>().position.x - 400;
+			//camera.y = player.getComponent<TransformComponent>().position.y - 320;
+
+            camera.x = player.getComponent<TransformComponent>().position.x - w/2;
+            camera.y = player.getComponent<TransformComponent>().position.y - h/2;
 
 			if(camera.x < 0)
 			{
@@ -341,6 +348,7 @@ void Game::start_menu()
     }
 
     // endGameLabel.draw();
+
     label1.draw();
 }
 

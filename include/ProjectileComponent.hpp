@@ -10,7 +10,9 @@ public:
 	ProjectileComponent(int rng, int sp, Vector2D vel) : range(rng), speed(sp), velocity(vel)
 	{}
 	~ProjectileComponent()
-	{}
+	{
+        std::cout<<"Projectile destroyed"<<std::endl;
+    }
 
 	void init() override
 	{
@@ -24,7 +26,7 @@ public:
 
 		if (distance > range)
 		{
-			std::cout << "Out of Range" << std::endl;
+			std::cout << "Projectile out of Range" << std::endl;
 			entity->destroy();
 		}
 		else if (transform->position.x > Game::camera.x + Game::camera.w ||
@@ -32,7 +34,7 @@ public:
 				transform->position.y > Game::camera.y + Game::camera.h ||
 				transform->position.y < Game::camera.y)
 		{
-			std::cout << "Out of bounds!" << std::endl;
+			std::cout << "Projectile out of bounds!" << std::endl;
 			entity->destroy();
 		}
 	}

@@ -82,6 +82,7 @@ public:
                 }
                 Game::assets->CreateProjectile(
                         Vector2D(c,d),Vector2D(a, b),200, 1, "projectile");
+                //Sound::playSound("../res/sample-3s.wav");
                 break;
             }
 			default:

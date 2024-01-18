@@ -25,7 +25,9 @@ public:
         //playerPos = nullptr;
     }
     ~EnemyComponent()
-    {}
+    {
+        std::cout<<"Enemy killed!"<<std::endl;
+    }
 
     void init() override
     {
