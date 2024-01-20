@@ -6,8 +6,10 @@
 #include <sstream>
 #include <vector>
 #include <fstream>
+#include <SDL_image.h>
 
-constexpr int w{ 800 }, h{ 640 };
+constexpr int w{ 800 }, h{ 640 }; //1
+//constexpr int w{ 1024 }, h{ 768 };  //2
 
 SDL_Renderer* Game::renderer = nullptr;
 Map* map;
@@ -16,8 +18,8 @@ Manager manager;
 
 SDL_Event Game::event;
 
-//SDL_Rect Game::camera = {0,0,800,640};
-SDL_Rect Game::camera = {0,0,w,h};
+SDL_Rect Game::camera = {0,0,w,h}; //1
+//SDL_Rect Game::camera = {0,0,w-450,h-260};  //2
 
 AssetManager* Game::assets = new AssetManager(&manager);
 
@@ -26,8 +28,7 @@ auto& label(manager.addEntity());
 auto& label1(manager.addEntity());
 auto& exitEntity(manager.addEntity());
 auto& finishedGame(manager.addEntity());
-//auto& enemy(manager.addEntity());
-
+auto& startMenuImage(manager.addEntity());
 auto& endGameLabel(manager.addEntity());
 
 bool Game::isRunning = false;
@@ -66,6 +67,7 @@ void Game::init(const char* title, int x, int y, int width, int height, bool ful
 		{
 			SDL_SetRenderDrawColor(renderer, 0xFF, 0xFF, 0xFF, 0xFF);
 			std::cout << "Renderer created! " << std::endl;
+
 		}
 
 		isRunning = true;
@@ -88,6 +90,7 @@ void Game::init(const char* title, int x, int y, int width, int height, bool ful
     assets->AddTexture("key", "../res/key.png");
     assets->AddTexture("door", "../res/door.png");
     assets->AddTexture("dead", "../res/dead.png");
+    assets->AddTexture("start_menu_image", "../res/start_menu_image1.png");
 
 	SDL_Color white = {255, 255, 255, 255};
     SDL_Color red = {255,0,0,0};
@@ -106,13 +109,16 @@ void Game::init(const char* title, int x, int y, int width, int height, bool ful
 	player.addGroup(groupPlayer);
 
 	label.addComponent<UILabel>(10, 10, "Test String", "arial", white);
-	label1.addComponent<UILabel>(25, 300, "Press any key to start the game s=save l=load", "arial_start", red);
+	label1.addComponent<UILabel>(25, 400, "Press any key to start the game s=save l=load", "arial_start", blue);
     endGameLabel.addComponent<UILabel>(150, 250, "You died!", "arial_start", red);
     finishedGame.addComponent<UILabel>(250,250,"Game finished!","arial_start" , blue);
 
     exitEntity.addComponent<TransformComponent>(1092,1175);
     exitEntity.addComponent<ColliderComponent>("exit");
 
+    startMenuImage.addComponent<TransformComponent>(0, h, h, w, 1, 0);
+    //startMenuImage.addComponent<TransformComponent>(0, h, 720, 1280, 1, 0);
+    startMenuImage.addComponent<SpriteComponent>("start_menu_image", false);
 
     gameState = START_MENU;
 }
@@ -284,7 +290,9 @@ void Game::render() {
 	switch(gameState)
 	{
 		case START_MENU:
+            startMenuImage.draw();
 			start_menu();
+
             //label1.draw();
 			break;
 		case PLAYING:
@@ -334,10 +342,19 @@ void Game::clean() {
 
 void Game::start_menu()
 {
+
+    startMenuImage.draw();
+
+    gameState = PLAYING;
+    update();
+    gameState = START_MENU;
+
+
     if(level>3)
     {
         finishedGame.draw();
     }
+
 
     if(player.getComponent<HealthComponent>().hasDied || player.getComponent<HealthComponent>().getHealth()<=0)
     {

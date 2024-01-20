@@ -10,7 +10,7 @@
 
 class EnemyComponent: public Component
 {
-private:
+protected:
     TransformComponent* transform;
     SpriteComponent* sprite;
     //Vector2D* playerPos;
@@ -71,14 +71,6 @@ public:
                 sprite->Play("WalkSideways");
             }
 
-//            srand(time(NULL));
-//            if(rand() % 5 == 1)
-//            {
-//                Game::assets->CreateProjectile(
-//                        Vector2D(transform->position.x, velocity.y == 1 ? transform->position.y + 75 : transform->position.y -50),
-//                        Vector2D(velocity.x, velocity.y),200, 1, "projectile");
-//            }
-
         }
         else {
             velocity = Vector2D(0, 0);
@@ -91,5 +83,18 @@ public:
     void setRadius(int r)
     {
         detectionRadius = r;
+    }
+};
+
+class SuperEnemy: public EnemyComponent
+{
+public:
+    void shoot()
+    {
+        //srand(time(NULL));
+        ////if(rand() % 5 == 1)
+        Game::assets->CreateProjectile(
+                        Vector2D(transform->position.x, velocity.y == 1 ? transform->position.y + 75 : transform->position.y -50),
+                        Vector2D(velocity.x, velocity.y),200, 1, "projectile");
     }
 };

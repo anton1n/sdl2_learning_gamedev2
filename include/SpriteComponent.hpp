@@ -18,7 +18,6 @@ private:
 	int frames = 0;
 	int speed = 100;
 
-
 public:
 
 	int animIndex = 0;

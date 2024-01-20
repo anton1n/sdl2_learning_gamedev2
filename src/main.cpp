@@ -1,7 +1,7 @@
 #include "Game.hpp"
 
-constexpr int width{ 800 }, height{ 640 };
-//constexpr int width{ 1024 }, height{ 768 };
+constexpr int width{ 800 }, height{ 640 }; //1
+//constexpr int width{ 1024 }, height{ 768 };  //2
 
 
 int main(int argc, char** argv)
