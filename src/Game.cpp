@@ -38,6 +38,7 @@ GameState Game::gameState;
 std::vector<Vector2D>lastEnemyPosition;
 bool gotItem=false;
 int level = 1;
+static bool initial = true;
 
 Game::Game() {
 
@@ -265,6 +266,7 @@ void Game::update() {
             camera.x = player.getComponent<TransformComponent>().position.x - w/2;
             camera.y = player.getComponent<TransformComponent>().position.y - h/2;
 
+
 			if(camera.x < 0)
 			{
 				camera.x = 0;
@@ -290,14 +292,13 @@ void Game::render() {
 	switch(gameState)
 	{
 		case START_MENU:
-            startMenuImage.draw();
+            //startMenuImage.draw();
 			start_menu();
 
             //label1.draw();
 			break;
 		case PLAYING:
-			
-			for(auto& t:tiles)
+            for(auto& t:tiles)
 			{
 				t->draw();
 			}
@@ -342,12 +343,16 @@ void Game::clean() {
 
 void Game::start_menu()
 {
-
     startMenuImage.draw();
 
     gameState = PLAYING;
     update();
+    camera.x = 0;
+    camera.y = 640;
+    //std::cout<<camera.x<<" "<<camera.y<<std::endl;
+
     gameState = START_MENU;
+
 
 
     if(level>3)
